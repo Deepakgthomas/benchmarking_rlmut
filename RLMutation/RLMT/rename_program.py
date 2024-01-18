@@ -33,7 +33,9 @@ parser.add_argument('new_environment_name', help='Enter the name of the environm
 parser.add_argument('-operator', required=False,help = 'Enter the name of the operator')
 parser.add_argument('-algorithm', required=False,help='Enter the name of the algorithm')
 parser.add_argument('-op', required=False ,help = 'Enter the operator parameter')
+parser.add_argument('-operator_repeat', required=False,help='En')
 args = parser.parse_args()
+
 if args.agent_type=='healthy':
     if args.old_environment_name in {"CartPole-V1", "LunarLander-V2"}:
         print("The capital V in -V will pose a problem. Manually changing it to v")
@@ -51,6 +53,8 @@ if args.agent_type=='healthy':
 
 elif args.agent_type=='mutated':
 
+
+
     if args.op!="None":
         first_dir_path = str(parent_directory) + '/experiments/Mutated_Agents/SingleOrderMutation/' + str(args.operator) + '/'+str(args.old_environment_name)+'/'+str(args.algorithm)+'/' + str(args.op) + '/logs'
         second_dir_path = str(parent_directory) + '/experiments/Mutated_Agents/SingleOrderMutation/' + str(args.operator)
@@ -58,9 +62,14 @@ elif args.agent_type=='mutated':
     else:
         first_dir_path = str(parent_directory) + '/experiments/Mutated_Agents/SingleOrderMutation/' + str(args.operator) + '/'+str(args.old_environment_name)+'/'+str(args.algorithm)+'/logs'
         second_dir_path = str(parent_directory) + '/experiments/Mutated_Agents/SingleOrderMutation/' + str(args.operator)
+
+
+
+
 else:
     print("There's an error")
     sys.exit()
+
 
 old_substring = str(args.old_environment_name)
 print("old_substring = ", old_substring)
@@ -68,9 +77,12 @@ print("old_substring = ", old_substring)
 new_substring = str(args.new_environment_name)
 
 print("new_substring = ", new_substring)
-print("first_dir_path = ", first_dir_path)
-print("second_dir_path = ", second_dir_path)
 
-rename_folders(first_dir_path, old_substring, new_substring)
-rename_folders(second_dir_path, old_substring, new_substring)
+if args.operator == "policy_activation_change" and not os.path.exists(first_dir_path):
+    first_dir_path = str(parent_directory) + '/experiments/Mutated_Agents/SingleOrderMutation/' + str(args.operator) + '/' + str(args.new_environment_name) + '/' + str(args.algorithm) + '/' + str(args.op) + '/logs'
+    second_dir_path = str(parent_directory) + '/experiments/Mutated_Agents/SingleOrderMutation/' + str(args.operator)
+    rename_folders(first_dir_path, old_substring, new_substring)
+else:
+    rename_folders(first_dir_path, old_substring, new_substring)
+    rename_folders(second_dir_path, old_substring, new_substring)
 

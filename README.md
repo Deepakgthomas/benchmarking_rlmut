@@ -30,5 +30,5 @@ Steps for execution -
 
 8. To get the results of the mutation testing process, do - 
 ```commandline
-    bash RLMutation/RLMT/mutation_results.sh
+    bash mutation_results.sh
 ```

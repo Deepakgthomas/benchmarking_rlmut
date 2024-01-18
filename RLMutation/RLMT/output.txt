@@ -64,3 +64,9 @@ Reward Distribution Test : Killed
 Distance Distribution Test: Killed
 
 
+Environement: myCartPole-v1, Model ppo, Mutation PAC_ReLU
+Average Mutated/Healthy Ratio Test : 0.25
+Reward Distribution Test : Killed
+Distance Distribution Test: Killed
+
+
