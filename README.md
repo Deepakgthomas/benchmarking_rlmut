@@ -6,7 +6,7 @@ Steps for execution -
 2. Unzip the folders "Healthy_Agents" and "Mutated_Agents" in the directory "experiments".
 3. Go to `~/benchmarking_rlmut/custom_env/custom_cartpole/cartpole_folder` and do `pip install -e .`
 4. Go to `/home/thoma/benchmarking_rlmut/RLMutation` and do `pip install -r requirements.txt`
-5. To run RLMut with our own version of environments, we need to rename a few folders. Therefore, please run - 
+5. To run RLMut with our on version of environments, we need to rename a few folders. Therefore, please run - 
 ```commandline
     bash rename_folders.sh
 ```
