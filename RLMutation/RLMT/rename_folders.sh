@@ -17,14 +17,13 @@ declare -A operators=(
   ["policy_activation_change"]="Sigmoid"
   ["policy_optimizer_change"]="SGD"
 )
-#for arg in "${!operators[@]}"; do
-#
-#  python rename_program.py mutated CartPole-v1 myCartPole-v1 $arg PPO ${operators[$arg]}
-#
-#done
-#todo Healthy PPO has some problems. The title has capital "V"
-#python rename_program.py healthy CartPole-v1 myCartPole-v1 -algorithm PPO
-#Checking here
+for arg in "${!operators[@]}"; do
+
+  python rename_program.py mutated CartPole-v1 myCartPole-v1 -operator $arg -algorithm PPO -op ${operators[$arg]}
+
+done
+#todo Note the capital V in the original environment name
+python rename_program.py healthy CartPole-V1 myCartPole-v1 -algorithm PPO
 
 
 
