@@ -37,8 +37,7 @@ args = parser.parse_args()
 if args.agent_type=='healthy':
     first_dir_path = str(parent_directory) + '/experiments/Healthy_Agents/'+str(args.old_environment_name)+'/'+str(args.algorithm)+'/logs'
     second_dir_path = str(parent_directory) + '/experiments/Healthy_Agents'
-    print("first_dir_path = ", first_dir_path)
-    print("second_dir_path = ", second_dir_path)
+
 
 elif args.agent_type=='mutated':
 
