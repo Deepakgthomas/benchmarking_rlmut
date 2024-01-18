@@ -1,5 +1,6 @@
 #author - Copied version 0.25.2
-
+import os
+#todo - Cite important
 """
 Classic cart-pole system implemented by Rich Sutton et al.
 Copied from http://incompleteideas.net/sutton/book/code/pole.c
@@ -431,8 +432,11 @@ class myCartPoleEnv(CartPoleEnv):
         self.steps_beyond_terminated = None
         self.episode_number = 0
         self.test_gen = []
-        #todo Check and change
-        file = open('/home/thoma/clean_gen_gamma/RLMutation/RLMT/testing-replay-cartpole.txt')
+        #todo Check
+
+        current_directory = os.getcwd()
+        config_address = current_directory + '/testing-replay-cartpole.txt'
+        file = open(str(config_address))
         content = file.readlines()
         for line in content:
             list_string = line.strip().split()[5].strip(":").split("#")

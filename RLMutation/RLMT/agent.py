@@ -1,8 +1,12 @@
 import custom_callbacks, utils, mutated_env
 import custom_callbacks
 import sys
-#todo Change this
-sys.path.append('/home/thoma/Downloads/custom_env/custom_cartpole/')
+import os
+current_directory = os.getcwd()
+up_count = 2
+up_directory_path = os.path.abspath(os.path.join(current_directory, "../" * up_count))
+env_address = str(up_directory_path)+'/custom_env/custom_cartpole/'
+sys.path.append(str(env_address))
 
 import cartpole_folder
 import os, gym, sys
