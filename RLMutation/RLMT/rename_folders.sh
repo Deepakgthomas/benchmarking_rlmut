@@ -24,6 +24,7 @@ declare -A operators=(
 #done
 #todo Healthy PPO has some problems. The title has capital "V"
 #python rename_program.py healthy CartPole-v1 myCartPole-v1 -algorithm PPO
+#Checking here
 
 
 
