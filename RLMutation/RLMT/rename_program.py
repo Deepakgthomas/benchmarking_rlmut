@@ -35,9 +35,15 @@ parser.add_argument('-algorithm', required=False,help='Enter the name of the alg
 parser.add_argument('-op', required=False ,help = 'Enter the operator parameter')
 args = parser.parse_args()
 if args.agent_type=='healthy':
-    # if args.old_environment_name in {"CartPole-V1", "LunarLander-V2"}:
-    #     print("The capital V in -V will pose a problem. Manually changing it to v")
-    #     args.old_environment_name = args.old_environment_name[:-2] + 'v1'
+    if args.old_environment_name in {"CartPole-V1", "LunarLander-V2"}:
+        print("The capital V in -V will pose a problem. Manually changing it to v")
+        dir_path = str(parent_directory) + '/experiments/Healthy_Agents'
+        old_substring = args.old_environment_name
+        new_substring = args.old_environment_name[:-2] + 'v1'
+        rename_folders(dir_path, old_substring, new_substring)
+        args.old_environment_name = args.old_environment_name[:-2] + 'v1'
+
+
 
     first_dir_path = str(parent_directory) + '/experiments/Healthy_Agents/'+str(args.old_environment_name)+'/'+str(args.algorithm)+'/logs'
     second_dir_path = str(parent_directory) + '/experiments/Healthy_Agents'
