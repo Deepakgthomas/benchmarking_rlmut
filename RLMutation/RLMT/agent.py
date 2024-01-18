@@ -1,5 +1,10 @@
 import custom_callbacks, utils, mutated_env
 import custom_callbacks
+import sys
+#todo Change this
+sys.path.append('/home/thoma/Downloads/custom_env/custom_cartpole/')
+
+import cartpole_folder
 import os, gym, sys
 from torch.utils import tensorboard
 

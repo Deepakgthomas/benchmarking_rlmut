@@ -7,6 +7,8 @@ from patsy import dmatrices
 import statsmodels.api as sm
 import statsmodels.stats.power as pw
 
+#todo Why did I have to import pandas?
+import pandas as pd
 from venv import create
 from gym import spaces
 from typing import Any, Dict, List, Optional, Tuple, Type, Union
