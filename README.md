@@ -29,8 +29,9 @@ pip install -r requirements.txt
 
 6. We want to run the trained agents downloaded in step 3. on our own environments, without significantly modifying the programs written by [1]. Their RL testing program searches for a trained agent using a path that contains the name of the current environment. Therefore, we need to rename the folders in the `experiments` directory using the names of our environments.
 ```commandline
-bash rename_folders.sh environment_name algorithm_name [incomplete]
+bash rename_folders.sh
 ```
+Right now, it only runs our test configurations for CartPole on PPO. I'll soon modify the program so that other environments/RL algorithms can be run. 
 
 7. To evaluate the trained agents on our test environments run - 
 ```commandline
