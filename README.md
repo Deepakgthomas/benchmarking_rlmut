@@ -1,34 +1,46 @@
-# benchmarking_rlmut
+# Benchmarking RLMutation [1]
+
+
 Prerequisite - 
-1. The authors of the RLMut used `Python 3.8`
-2. We used `Ubuntu 22.04.3 LTS` with PyCharm Community for the benchmarking process
+1. Similar to [1], we use `Python 3.8`
+2. The tool was written using `Ubuntu 22.04.3 LTS` with PyCharm Community as the IDE
 
 
 Steps for execution - 
 
-1. Go [here](https://zenodo.org/records/7233122) and download "agents.zip".
 
-2. Unzip the folders "Healthy_Agents" and "Mutated_Agents" in the directory "experiments".
+1. Clone the official [RLMutation](https://github.com/FlowSs/RLMutation.git) repository
 
-3. Go to `custom_env/custom_cartpole/cartpole_folder` and do `pip install -e .`
+2. Go [here](https://zenodo.org/records/7233122) and download "agents.zip".
 
-4. Go to `RLMutation` and do `pip install -r requirements.txt`
-5. 
-```commandline
-   
-    cd RLMutation/RLMT/
+3. Unzip the folders "Healthy_Agents" and "Mutated_Agents" in the directory "experiments".
+
+4. Installing the custom gym environment -
 ```
-6. To run RLMut with our own version of environments, we need to rename a few folders. Therefore, please run - 
+cd custom_env/custom_cartpole/cartpole_folder 
+pip install -e .
+```
+
+5. Installing packages for RLMutation
 ```commandline
-    bash rename_folders.sh
+cd RLMutation
+pip install -r requirements.txt
+```
+
+6. We want to run the trained agents downloaded in step 3. on our own environments, without significantly modifying the programs written by [1]. The RL testing program searches for a trained agent using a path that contains the name of the current environment. Therefore, we need to rename those folders using the names of our environments.
+```commandline
+bash rename_folders.sh
 ```
 
 7. To evaluate the trained agents on our test environments run - 
 ```commandline
-    bash run_test_agent.sh
+bash run_test_agent.sh
 ```
 
-8. To get the results of the mutation testing process, do - 
+8. To get the results of the mutation testing process run - 
 ```commandline
     bash mutation_results.sh
 ```
+The results should be stored in the file - `output.txt`
+
+[1]. Tambon, Florian, et al. "Mutation Testing of Deep Reinforcement Learning Based on Real Faults." 2023 IEEE Conference on Software Testing, Verification and Validation (ICST). IEEE, 2023.
