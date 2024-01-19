@@ -53,6 +53,6 @@ For example -
 ```commandline
 bash mutation_results.sh myCartPole-v1 ppo
 ```
-Th results should be stored in the file - `output.txt`
+The results should be stored in the file - `output.txt`
 
 [1]. Tambon, Florian, et al. "Mutation Testing of Deep Reinforcement Learning Based on Real Faults." 2023 IEEE Conference on Software Testing, Verification and Validation (ICST). IEEE, 2023.
