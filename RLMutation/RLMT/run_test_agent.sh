@@ -22,12 +22,12 @@ for arg in "${!operators[@]}"; do
   for val in ${operators[${arg}]}; do
     echo "Running Operator" ${arg} "Value" ${val}
     json_string="{\"$arg\":\"${val}\"}"
-    python test_agent.py -a ppo -na 20 -e myCartPole-v1 -m $json_string
+    python test_agent.py -a $2 -na 20 -e $1 -m $json_string
   done
 
 done
 
-python test_agent.py -a ppo -na 20 -e myCartPole-v1
+python test_agent.py -a $2 -na 20 -e $1
 
 
 
