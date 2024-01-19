@@ -13,21 +13,21 @@ Steps for execution -
 
 2. Go [here](https://zenodo.org/records/7233122) and download "agents.zip".
 
-3. Unzip the folders "Healthy_Agents" and "Mutated_Agents" in the directory "experiments".
+3. Unzip the folders "Healthy_Agents" and "Mutated_Agents" in the directory "experiments". The folder structure should look like this - `RLMutation/experiments`
 
-4. Installing the custom gym environment -
+4. Install the custom gym environment -
 ```
 cd custom_env/custom_cartpole/cartpole_folder 
 pip install -e .
 ```
 
-5. Installing packages for RLMutation
+5. Install the packages for RLMutation
 ```commandline
 cd RLMutation
 pip install -r requirements.txt
 ```
 
-6. We want to run the trained agents downloaded in step 3. on our own environments, without significantly modifying the programs written by [1]. The RL testing program searches for a trained agent using a path that contains the name of the current environment. Therefore, we need to rename those folders using the names of our environments.
+6. We want to run the trained agents downloaded in step 3. on our own environments, without significantly modifying the programs written by [1]. Their RL testing program searches for a trained agent using a path that contains the name of the current environment. Therefore, we need to rename the folders in the `experiments` directory using the names of our environments.
 ```commandline
 bash rename_folders.sh
 ```
@@ -39,7 +39,7 @@ bash run_test_agent.sh
 
 8. To get the results of the mutation testing process run - 
 ```commandline
-    bash mutation_results.sh
+bash mutation_results.sh
 ```
 The results should be stored in the file - `output.txt`
 
