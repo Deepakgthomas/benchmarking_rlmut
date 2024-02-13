@@ -362,6 +362,7 @@ def load_model(algorithm: str, environment: gym.Env, model_path: str):
 
         from stable_baselines3.ppo.ppo import PPO
 
+
         model = PPO.load(
             model_path,
             custom_objects={

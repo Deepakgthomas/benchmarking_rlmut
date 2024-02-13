@@ -19,6 +19,8 @@ Steps for execution -
 ```
 cd custom_env/custom_cartpole/cartpole_folder 
 pip install -e .
+
+to-do - Update this for lunarlander
 ```
 
 5. Install the packages for RLMutation
@@ -26,7 +28,9 @@ pip install -e .
 cd RLMutation
 pip install -r requirements.txt
 ```
-
+To-do Got to cd into RLMT
+The old environment is hardcoded. We can only rename either one of the environments right now - 
+LumarLander or CartPole
 6. We want to run the trained agents downloaded in step 3. on our own environments, without significantly modifying the programs written by [1]. Their RL testing program searches for a trained agent using a path that contains the name of the current environment. Therefore, we need to rename the folders in the `experiments` directory using the names of our environments.
 ```commandline
 bash rename_folders.sh new_environment_name algorithm_name

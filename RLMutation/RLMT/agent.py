@@ -9,6 +9,7 @@ env_address = str(up_directory_path)+'/custom_env/custom_cartpole/'
 sys.path.append(str(env_address))
 
 import cartpole_folder
+import lunarlander_folder
 import os, gym, sys
 from torch.utils import tensorboard
 
@@ -152,6 +153,7 @@ class Agent:
             return_dict (dict): dictionary to store the results
 
         """
+
         self.model = utils.load_model(self.algorithm, self.environment, self.log_dir)
         mean_reward, std_reward = evaluate_policy(
             self.model,

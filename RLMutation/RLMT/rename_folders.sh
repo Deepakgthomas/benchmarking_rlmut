@@ -24,13 +24,13 @@ for arg in "${!operators[@]}"; do
 
   for val in ${operators[${arg}]}; do
 
-    python rename_program.py mutated CartPole-v1 $1 -operator ${arg} -algorithm $2 -op ${val}
+    python rename_program.py mutated LunarLander-v2 $1 -operator ${arg} -algorithm $2 -op ${val}
 
   done
 
 done
 #todo Note the capital V in the original environment name
-python rename_program.py healthy CartPole-V1 $1 -algorithm $2
+python rename_program.py healthy LunarLander-V2 $1 -algorithm $2
 #todo ReLU/Sigmoid doesn't work
 #todo Why is LunarLander coming in the output?
 
