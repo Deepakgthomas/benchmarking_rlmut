@@ -122,6 +122,7 @@ class MutatedMonitor(Monitor):
 
         mut_env = list(set(self.mutation).intersection(settings.MUTATION_ENVIRONMENT_LIST))[0]
 
+
         # Looping all possible env mut
         for mut_ in mut_env:
             # Magnitude of the environment mutation, it must be float to work

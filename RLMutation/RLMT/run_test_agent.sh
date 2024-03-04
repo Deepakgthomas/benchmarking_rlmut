@@ -27,6 +27,7 @@ for arg in "${!operators[@]}"; do
 
 done
 
+echo "Running Healthy Agent"
 python test_agent.py -a $2 -na 20 -e $1
 
 

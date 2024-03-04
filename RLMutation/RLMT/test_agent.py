@@ -5,13 +5,13 @@ import csv
 from pathlib import Path
 import settings
 import json
-
 import multiprocessing as mp
 
 ########################################################################################################################
 # Parsing arguments
 ########################################################################################################################
 # General arguments
+import sys
 parser = argparse.ArgumentParser(
     description="Mutation Testing for Deep Reinforcement Learning"
 )
@@ -43,7 +43,6 @@ parser.add_argument(
 arguments = parser.parse_args()
 
 mutation_dict = json.loads(arguments.mutation)
-
 assert arguments.algorithm.upper() in ["PPO", "A2C", "DQN"], "Algorithm {} is not a valid".format(
     arguments.algorithm.upper())
 
@@ -88,6 +87,7 @@ agents = [
 for agent in agents:
     agent.init_agent(test=True)
 
+
 manager = mp.Manager()
 return_dict = manager.dict()
 
@@ -121,7 +121,6 @@ def natural_keys(text):
 
 my_list = list(return_dict.keys())
 my_list.sort(key=natural_keys)
-
 path_dir = Path(os.path.join('..', 'csv_res', arguments.environment_name, arguments.algorithm.upper()))
 path_dir.mkdir(parents=True, exist_ok=True)
 

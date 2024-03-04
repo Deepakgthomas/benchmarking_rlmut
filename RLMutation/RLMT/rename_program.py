@@ -6,24 +6,28 @@ full_path = os.path.abspath(os.path.dirname(__file__))
 parent_directory = os.path.dirname(full_path)
 
 def rename_folders(directory_path, old_substring, new_substring):
-    for folder_name in os.listdir(directory_path):
-        old_folder_path = os.path.join(directory_path, folder_name)
-
-        # Check if it's a directory
-        if os.path.isdir(old_folder_path):
-            # Replace the specified substring in the folder name
-            new_folder_name = folder_name.replace(old_substring, new_substring)
-
-            # Construct the full paths for the old and new folders
+    if os.path.exists(directory_path):
+        for folder_name in os.listdir(directory_path):
             old_folder_path = os.path.join(directory_path, folder_name)
-            new_folder_path = os.path.join(directory_path, new_folder_name)
 
-            try:
-                # Rename the folder
-                os.rename(old_folder_path, new_folder_path)
-                print(f"Folder '{folder_name}' successfully renamed to '{new_folder_name}'.")
-            except FileExistsError:
-                print(f"Error: Folder '{new_folder_name}' already exists.")
+            # Check if it's a directory
+            if os.path.isdir(old_folder_path):
+                # Replace the specified substring in the folder name
+                new_folder_name = folder_name.replace(old_substring, new_substring)
+
+                # Construct the full paths for the old and new folders
+                old_folder_path = os.path.join(directory_path, folder_name)
+                new_folder_path = os.path.join(directory_path, new_folder_name)
+
+                try:
+                    # Rename the folder
+                    os.rename(old_folder_path, new_folder_path)
+                    print(f"Folder '{folder_name}' successfully renamed to '{new_folder_name}'.")
+                except FileExistsError:
+                    print(f"Error: Folder '{new_folder_name}' already exists.")
+
+    else:
+        print("Path ",  directory_path, " doesn't exist")
 
 
 parser = argparse.ArgumentParser()
@@ -41,9 +45,9 @@ if args.agent_type=='healthy':
         print("The capital V in -V will pose a problem. Manually changing it to v")
         dir_path = str(parent_directory) + '/experiments/Healthy_Agents'
         old_substring = args.old_environment_name
-        new_substring = args.old_environment_name[:-2] + 'v1'
+        new_substring = args.old_environment_name[:-2] + args.old_environment_name[-2:].lower()
         rename_folders(dir_path, old_substring, new_substring)
-        args.old_environment_name = args.old_environment_name[:-2] + 'v1'
+        args.old_environment_name = args.old_environment_name[:-2] + args.old_environment_name[-2:].lower()
 
 
 

@@ -5,11 +5,14 @@ import os
 current_directory = os.getcwd()
 up_count = 2
 up_directory_path = os.path.abspath(os.path.join(current_directory, "../" * up_count))
-env_address = str(up_directory_path)+'/custom_env/custom_cartpole/'
+env_address = str(up_directory_path)+'/custom_env/custom_cartpole_dqn/'
+print("env_address = ", env_address)
 sys.path.append(str(env_address))
 
 import cartpole_folder
 import lunarlander_folder
+import cartpole_dqn_folder
+
 import os, gym, sys
 from torch.utils import tensorboard
 
@@ -73,6 +76,8 @@ class Agent:
                 os.makedirs(self.log_dir)
 
     def init_env(self, test=False):
+
+
         """
         Initialize the environment.
         Using Montior to log the environment.
@@ -84,6 +89,7 @@ class Agent:
         # If not using vectorized environment or if we are just evaluating the environment (no need for vectorized!)
         if not self.vectorized or test:
             self.environment = gym.make(self.environment)
+
             # Fixing the seed when evaluating to allow for comparison across agents and mutations
             if test:
                 self.environment.seed(420)
@@ -117,9 +123,11 @@ class Agent:
         )
 
     def init_agent(self, test=False):
+
         if test and self.log_dir is None:
             raise Exception("Test flag is provided, please input the log_dir argument")
         self.init_log()
+
         self.init_env(test)
 
     def train(self, total_timesteps: int):
@@ -146,6 +154,7 @@ class Agent:
         self.finsihed_training = True
 
     def test(self, return_dict: dict):
+
         """
         Agent's testing function.
 
@@ -153,13 +162,14 @@ class Agent:
             return_dict (dict): dictionary to store the results
 
         """
-
         self.model = utils.load_model(self.algorithm, self.environment, self.log_dir)
+
         mean_reward, std_reward = evaluate_policy(
             self.model,
             self.model.get_env(),
             n_eval_episodes=self.hyper_params["n_episodes"],
         )
+
 
         return_dict[self.id] = [mean_reward, std_reward]
 
