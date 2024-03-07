@@ -7,4 +7,6 @@ import cartpole_folder
 import gym
 import numpy as np
 env = gym.make('myCartPole-v1')
-print("Reset = ", env.reset())
+for i in range(100):
+    observation = env.reset()
+    print("i = ", i, " observation = ", observation)

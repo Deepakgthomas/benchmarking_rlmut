@@ -389,7 +389,7 @@ class myCartPoleEnv(CartPoleEnv):
         "render_fps": 50,
     }
 
-    def __init__(self, render_mode: Optional[str] = None):
+    def __init__(self, file_address,render_mode: Optional[str] = None):
         self.gravity = 9.8
         self.masscart = 1.0
         self.masspole = 0.1
@@ -433,13 +433,15 @@ class myCartPoleEnv(CartPoleEnv):
         self.episode_number = 0
         self.test_gen = []
         #todo Check
-
         current_directory = os.getcwd()
-        config_address = current_directory + '/testing-replay-cartpole.txt'
-        file = open(str(config_address))
+        folder_path = os.path.join(current_directory, file_address)
+        files = os.listdir(folder_path)
+        txt_files = [file for file in files if file.endswith('.txt')][-1]
+        file_path = os.path.join(folder_path, txt_files)
+        file = open(str(file_path))
         content = file.readlines()
         for line in content:
-            list_string = line.strip().split()[5].strip(":").split("#")
+            list_string = line.strip().split("#")
             list_float = [float(i) for i in list_string]
             self.test_gen.append(np.array(list_float))
 
