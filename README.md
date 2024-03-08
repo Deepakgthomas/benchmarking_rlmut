@@ -27,17 +27,21 @@ to-do - Update this for lunarlander
 ```commandline
 cd RLMutation
 pip install -r requirements.txt
+cd RLMT
 ```
-To-do Got to cd into RLMT
 The old environment is hardcoded. We can only rename either one of the environments right now - 
 LumarLander or CartPole
 6. We want to run the trained agents downloaded in step 3. on our own environments, without significantly modifying the programs written by [1]. Their RL testing program searches for a trained agent using a path that contains the name of the current environment. Therefore, we need to rename the folders in the `experiments` directory using the names of our environments.
 ```commandline
-bash rename_folders.sh new_environment_name algorithm_name
+bash rename_folders_mutated.sh old_environment_name new_environment_name algorithm_name
+bash rename_folders_healthy.sh old_environment_name new_environment_name algorithm_name
+
 ```
 For example - 
 ```commandline
-bash rename_folders.sh myCartPole-v1 PPO
+bash rename_folders_mutated.sh CartPole-v1 myCartPole-v1 PPO
+bash rename_folders_healthy.sh CartPole-V1 myCartPole-v1 PPO
+
 ```
 
 7. To evaluate the trained agents on our test environments run - 
@@ -50,6 +54,7 @@ bash run_test_agent.sh myCartPole-v1 ppo
 ```
 
 8. To get the results of the mutation testing process run - 
+This needs to be updated based on my run_confs.py file
 ```commandline
 bash mutation_results.sh new_environment_name algorithm_name
 ```

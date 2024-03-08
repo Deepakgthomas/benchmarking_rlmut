@@ -11,7 +11,7 @@ def rename_folders(directory_path, old_substring, new_substring):
             old_folder_path = os.path.join(directory_path, folder_name)
 
             # Check if it's a directory
-            if os.path.isdir(old_folder_path):
+            if os.path.isdir(old_folder_path) and new_substring not in folder_name:
                 # Replace the specified substring in the folder name
                 new_folder_name = folder_name.replace(old_substring, new_substring)
 
