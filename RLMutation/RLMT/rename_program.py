@@ -7,13 +7,25 @@ parent_directory = os.path.dirname(full_path)
 
 def rename_folders(directory_path, old_substring, new_substring):
     if os.path.exists(directory_path):
+
         for folder_name in os.listdir(directory_path):
             old_folder_path = os.path.join(directory_path, folder_name)
 
             # Check if it's a directory
-            if os.path.isdir(old_folder_path) and new_substring not in folder_name:
+            if os.path.isdir(old_folder_path):
+
+
                 # Replace the specified substring in the folder name
+                if old_substring==new_substring and old_substring not in folder_name and "logs" in old_folder_path:
+                    if "CartPole" in old_substring:
+                        old_substring="CartPole-v1"
+                    else:
+                        old_substring="LunarLander-v2"
                 new_folder_name = folder_name.replace(old_substring, new_substring)
+                print("old_substring = ", old_substring)
+                print("new_substring = ", new_substring)
+
+                print("new_folder_name = ", new_folder_name)
 
                 # Construct the full paths for the old and new folders
                 old_folder_path = os.path.join(directory_path, folder_name)
@@ -22,7 +34,7 @@ def rename_folders(directory_path, old_substring, new_substring):
                 try:
                     # Rename the folder
                     os.rename(old_folder_path, new_folder_path)
-                    print(f"Folder '{folder_name}' successfully renamed to '{new_folder_name}'.")
+                    # print(f"Folder '{folder_name}' successfully renamed to '{new_folder_name}'.")
                 except FileExistsError:
                     print(f"Error: Folder '{new_folder_name}' already exists.")
 

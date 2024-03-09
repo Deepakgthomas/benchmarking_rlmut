@@ -13,7 +13,7 @@ my_array=("ILF" "M_1.0" "R_1.0" "Ra_1.0" "RN_1.0" "NDF" "MSU" "MTS" "PAC_Sigmoid
 for arg in "${my_array[@]}"; do
   echo "Operator $arg"
   python eval_mut.py -a $2 -e $1 -m $arg
-done > "output_$1_$2.txt"
+done > "output_$1_$2_$3_$4.txt"
 
 
 
