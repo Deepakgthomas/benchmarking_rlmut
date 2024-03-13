@@ -11,7 +11,6 @@ sys.path.append(str(env_address))
 
 import cartpole_folder
 import lunarlander_folder
-import cartpole_dqn_folder
 
 import os, gym, sys
 from torch.utils import tensorboard

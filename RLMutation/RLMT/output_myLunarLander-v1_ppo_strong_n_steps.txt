@@ -40,6 +40,13 @@ Reward Distribution Test : Killed
 Distance Distribution Test: Killed
 
 
+Operator NR
+Environement: myLunarLander-v1, Model ppo, Mutation NR
+Average Mutated/Healthy Ratio Test : 1.0
+Reward Distribution Test : Killed
+Distance Distribution Test: Killed
+
+
 Operator MSU
 Environement: myLunarLander-v1, Model ppo, Mutation MSU
 Average Mutated/Healthy Ratio Test : 1.0
@@ -66,5 +73,12 @@ Environement: myLunarLander-v1, Model ppo, Mutation POC_SGD
 Average Mutated/Healthy Ratio Test : 1.0
 Reward Distribution Test : Killed
 Distance Distribution Test: Killed
+
+
+Operator PAC_ReLU
+Environement: myLunarLander-v1, Model ppo, Mutation PAC_ReLU
+Average Mutated/Healthy Ratio Test : 0.05
+Reward Distribution Test : Killed
+Distance Distribution Test: Not Killed
 
 
