@@ -7,37 +7,46 @@ import shutil
 
 
 def run_test(new_environment_name, algorithm):
+    stdout_file_name = str(new_environment_name)+"_"+str(algorithm)+"_"+"stdout_test.txt"
+    stderr_file_name = str(new_environment_name)+"_"+str(algorithm)+"_"+"stderr_test.txt"
 
-    test_agent_script = "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/run_test_agent.sh"
+    test_agent_script = "run_test_agent.sh"
 
     command = ["bash", test_agent_script, new_environment_name, algorithm]
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    stdout, stderr = process.communicate()
 
-    print("Standard Output:")
-    print(stdout.decode())
-    print("Standard Error:")
-    print(stderr.decode())
-
-    # Get the return code
-    return_code = process.returncode
-    print("Return Code:", return_code)
+    with open(stdout_file_name, "w") as stdout, open(stderr_file_name, "w") as stderr:
+        result = subprocess.run(command, stdout=stdout, stderr=stderr, text=True, check=True)
+    # process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    # stdout, stderr = process.communicate()
+    #
+    # print("Standard Output:")
+    # print(stdout.decode())
+    # print("Standard Error:")
+    # print(stderr.decode())
+    #
+    # # Get the return code
+    # return_code = process.returncode
+    # print("Return Code:", return_code)
 
 
 def compute_mutation_results(new_environment_name, algorithm, test_generator_type, mutant_type_from_file):
-    test_agent_script = "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/mutation_results.sh"
+    stdout_file_name = str(new_environment_name)+"_"+str(algorithm)+"_"+str(test_generator_type)+"_"+str(mutant_type_from_file)+"_"+"stdout_mutation_result.txt"
+    stderr_file_name = str(new_environment_name)+"_"+str(algorithm)+"_"+str(test_generator_type)+"_"+str(mutant_type_from_file)+"_"+"stderr_mutation_result.txt"
+    test_agent_script = "mutation_results.sh"
     command = ["bash", test_agent_script, new_environment_name, algorithm, test_generator_type, mutant_type_from_file]
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    stdout, stderr = process.communicate()
-
-    print("Standard Output:")
-    print(stdout.decode())
-    print("Standard Error:")
-    print(stderr.decode())
-
-    # Get the return code
-    return_code = process.returncode
-    print("Return Code:", return_code)
+    with open(stdout_file_name, "w") as stdout, open(stderr_file_name, "w") as stderr:
+        result = subprocess.run(command, stdout=stdout, stderr=stderr, text=True, check=True)
+    # process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    # stdout, stderr = process.communicate()
+    #
+    # print("Standard Output:")
+    # print(stdout.decode())
+    # print("Standard Error:")
+    # print(stderr.decode())
+    #
+    # # Get the return code
+    # return_code = process.returncode
+    # print("Return Code:", return_code)
 #todo Check if os.walk uses dfs to traverse trees
 
 def rename():
@@ -103,17 +112,21 @@ def rename():
                     rename_program_script="rename_folders_mutated.sh"
 
                 # Calling the bash operations here
+                stdout_file_name = str(new_environment_name) + "_" + str(algos) + "_" + "stdout_rename.txt"
+                stderr_file_name = str(new_environment_name) + "_" + str(algos) + "_" + "stderr_rename.txt"
                 command = ["bash", rename_program_script, old_environment_name, new_environment_name, algos]
-                process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                stdout, stderr = process.communicate()
-                print("Standard Output:")
-                print(stdout.decode())
-                print("Standard Error:")
-                print(stderr.decode())
-
-                # Get the return code
-                return_code = process.returncode
-                print("Return Code:", return_code)
+                with open(stdout_file_name, "w") as stdout, open(stderr_file_name, "w") as stderr:
+                    result = subprocess.run(command, stdout=stdout, stderr=stderr, text=True, check=True)
+                # process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                # stdout, stderr = process.communicate()
+                # print("Standard Output:")
+                # print(stdout.decode())
+                # print("Standard Error:")
+                # print(stderr.decode())
+                #
+                # # Get the return code
+                # return_code = process.returncode
+                # print("Return Code:", return_code)
 
 def run_tool(directory):
     '''
@@ -123,7 +136,6 @@ def run_tool(directory):
     rename()
 
     for root, _, files in os.walk(directory):
-        print("root")
         root_substring = root.rsplit("/",1)[-1]
         if root_substring == "CartPole-v1" or root_substring == "LunarLander-v2":
             environment = root_substring
@@ -140,7 +152,7 @@ def run_tool(directory):
 
                 # Create a temporary folder (destination_folder) folder from where the custom environments will take
                 # the environment configuration files.
-                destination_folder = '/home/thoma/benchmarking_rlmut/RLMutation/RLMT/'+'testing'
+                destination_folder = 'testing'
                 os.makedirs(destination_folder)
                 shutil.copy(file_path, destination_folder)
                 new_environment_name=""

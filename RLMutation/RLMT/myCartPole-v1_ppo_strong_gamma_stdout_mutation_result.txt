@@ -69,3 +69,16 @@ Distance Distribution Test: Killed
 
 
 Operator POC_SGD
+Environement: myCartPole-v1, Model ppo, Mutation POC_SGD
+Average Mutated/Healthy Ratio Test : 1.0
+Reward Distribution Test : Killed
+Distance Distribution Test: Killed
+
+
+Operator PAC_ReLU
+Environement: myCartPole-v1, Model ppo, Mutation PAC_ReLU
+Average Mutated/Healthy Ratio Test : 0.25
+Reward Distribution Test : Killed
+Distance Distribution Test: Killed
+
+

@@ -16,7 +16,7 @@ fi
 for arg in "${my_array[@]}"; do
   echo "Operator $arg"
   python eval_mut.py -a $2 -e $1 -m $arg
-done > "output_$1_$2_$3_$4.txt"
+done
 
 
 

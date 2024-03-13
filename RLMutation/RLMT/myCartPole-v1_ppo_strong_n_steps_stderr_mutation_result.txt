@@ -1,0 +1,58 @@
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/utils/tensorboard/__init__.py:4: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if not hasattr(tensorboard, '__version__') or LooseVersion(tensorboard.__version__) < LooseVersion('1.15'):
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/scipy/stats/_continuous_distns.py:6306: RuntimeWarning: divide by zero encountered in _ncf_sf
+  return _boost._ncf_sf(x, dfn, dfd, nc)
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/utils/tensorboard/__init__.py:4: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if not hasattr(tensorboard, '__version__') or LooseVersion(tensorboard.__version__) < LooseVersion('1.15'):
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/scipy/stats/_continuous_distns.py:6306: RuntimeWarning: divide by zero encountered in _ncf_sf
+  return _boost._ncf_sf(x, dfn, dfd, nc)
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/utils/tensorboard/__init__.py:4: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if not hasattr(tensorboard, '__version__') or LooseVersion(tensorboard.__version__) < LooseVersion('1.15'):
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/utils/tensorboard/__init__.py:4: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if not hasattr(tensorboard, '__version__') or LooseVersion(tensorboard.__version__) < LooseVersion('1.15'):
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/scipy/stats/_continuous_distns.py:6306: RuntimeWarning: divide by zero encountered in _ncf_sf
+  return _boost._ncf_sf(x, dfn, dfd, nc)
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/scipy/stats/_continuous_distns.py:6306: RuntimeWarning: divide by zero encountered in _ncf_sf
+  return _boost._ncf_sf(x, dfn, dfd, nc)
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/utils/tensorboard/__init__.py:4: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if not hasattr(tensorboard, '__version__') or LooseVersion(tensorboard.__version__) < LooseVersion('1.15'):
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/utils/tensorboard/__init__.py:4: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if not hasattr(tensorboard, '__version__') or LooseVersion(tensorboard.__version__) < LooseVersion('1.15'):
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/scipy/stats/_continuous_distns.py:6306: RuntimeWarning: divide by zero encountered in _ncf_sf
+  return _boost._ncf_sf(x, dfn, dfd, nc)
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/utils/tensorboard/__init__.py:4: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if not hasattr(tensorboard, '__version__') or LooseVersion(tensorboard.__version__) < LooseVersion('1.15'):
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/scipy/stats/_continuous_distns.py:6306: RuntimeWarning: divide by zero encountered in _ncf_sf
+  return _boost._ncf_sf(x, dfn, dfd, nc)
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/utils/tensorboard/__init__.py:4: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if not hasattr(tensorboard, '__version__') or LooseVersion(tensorboard.__version__) < LooseVersion('1.15'):
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/scipy/stats/_continuous_distns.py:6306: RuntimeWarning: divide by zero encountered in _ncf_sf
+  return _boost._ncf_sf(x, dfn, dfd, nc)
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/utils/tensorboard/__init__.py:4: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if not hasattr(tensorboard, '__version__') or LooseVersion(tensorboard.__version__) < LooseVersion('1.15'):
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/utils/tensorboard/__init__.py:4: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if not hasattr(tensorboard, '__version__') or LooseVersion(tensorboard.__version__) < LooseVersion('1.15'):
+Traceback (most recent call last):
+  File "eval_mut.py", line 11, in <module>
+    import utils as utils
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/utils.py", line 3, in <module>
+    import stable_baselines3
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/__init__.py", line 3, in <module>
+    from stable_baselines3.a2c import A2C
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/a2c/__init__.py", line 1, in <module>
+    from stable_baselines3.a2c.a2c import A2C
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/a2c/a2c.py", line 3, in <module>
+    import torch as th
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/__init__.py", line 751, in <module>
+    from .functional import *  # noqa: F403
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/functional.py", line 8, in <module>
+    import torch.nn.functional as F
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/__init__.py", line 1, in <module>
+    from .modules import *  # noqa: F403
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/__init__.py", line 1, in <module>
+    from .module import Module
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/module.py", line 20, in <module>
+    class _IncompatibleKeys(namedtuple('IncompatibleKeys', ['missing_keys', 'unexpected_keys'])):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/collections/__init__.py", line 407, in namedtuple
+    _make.__func__.__doc__ = (f'Make a new {typename} object from a sequence '
+KeyboardInterrupt
