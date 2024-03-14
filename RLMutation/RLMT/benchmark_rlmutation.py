@@ -1,6 +1,5 @@
 
 import os
-
 import subprocess
 import sys
 import shutil
@@ -15,18 +14,8 @@ def run_test(new_environment_name, algorithm):
     command = ["bash", test_agent_script, new_environment_name, algorithm]
 
     with open(stdout_file_name, "w") as stdout, open(stderr_file_name, "w") as stderr:
-        result = subprocess.run(command, stdout=stdout, stderr=stderr, text=True, check=True)
-    # process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    # stdout, stderr = process.communicate()
-    #
-    # print("Standard Output:")
-    # print(stdout.decode())
-    # print("Standard Error:")
-    # print(stderr.decode())
-    #
-    # # Get the return code
-    # return_code = process.returncode
-    # print("Return Code:", return_code)
+        result = subprocess.run(command, stdout=stdout, stderr=stderr, check=True)
+
 
 
 def compute_mutation_results(new_environment_name, algorithm, test_generator_type, mutant_type_from_file):
@@ -35,18 +24,8 @@ def compute_mutation_results(new_environment_name, algorithm, test_generator_typ
     test_agent_script = "mutation_results.sh"
     command = ["bash", test_agent_script, new_environment_name, algorithm, test_generator_type, mutant_type_from_file]
     with open(stdout_file_name, "w") as stdout, open(stderr_file_name, "w") as stderr:
-        result = subprocess.run(command, stdout=stdout, stderr=stderr, text=True, check=True)
-    # process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    # stdout, stderr = process.communicate()
-    #
-    # print("Standard Output:")
-    # print(stdout.decode())
-    # print("Standard Error:")
-    # print(stderr.decode())
-    #
-    # # Get the return code
-    # return_code = process.returncode
-    # print("Return Code:", return_code)
+        result = subprocess.run(command, stdout=stdout, stderr=stderr, check=True)
+
 #todo Check if os.walk uses dfs to traverse trees
 
 def rename():
@@ -116,23 +95,15 @@ def rename():
                 stderr_file_name = str(new_environment_name) + "_" + str(algos) + "_" + "stderr_rename.txt"
                 command = ["bash", rename_program_script, old_environment_name, new_environment_name, algos]
                 with open(stdout_file_name, "w") as stdout, open(stderr_file_name, "w") as stderr:
-                    result = subprocess.run(command, stdout=stdout, stderr=stderr, text=True, check=True)
-                # process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                # stdout, stderr = process.communicate()
-                # print("Standard Output:")
-                # print(stdout.decode())
-                # print("Standard Error:")
-                # print(stderr.decode())
-                #
-                # # Get the return code
-                # return_code = process.returncode
-                # print("Return Code:", return_code)
+                    result = subprocess.run(command, stdout=stdout, stderr=stderr, check=True)
+
 
 def run_tool(directory):
     '''
     The first step involves calling the rename function. It renames the stored
     RL model folders with our environment names
     '''
+
     rename()
 
     for root, _, files in os.walk(directory):

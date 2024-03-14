@@ -1,0 +1,70 @@
+Operator ILF
+Environement: myCartPole-v1, Model dqn, Mutation ILF
+Average Mutated/Healthy Ratio Test : 1.0
+Reward Distribution Test : Killed
+Distance Distribution Test: Killed
+
+
+Operator M_1.0
+Environement: myCartPole-v1, Model dqn, Mutation M_1.0
+Average Mutated/Healthy Ratio Test : 1.0
+Reward Distribution Test : Killed
+Distance Distribution Test: Killed
+
+
+Operator R_1.0
+Environement: myCartPole-v1, Model dqn, Mutation R_1.0
+Average Mutated/Healthy Ratio Test : 0.9
+Reward Distribution Test : Killed
+Distance Distribution Test: Killed
+
+
+Operator Ra_1.0
+Environement: myCartPole-v1, Model dqn, Mutation Ra_1.0
+Average Mutated/Healthy Ratio Test : 1.0
+Reward Distribution Test : Killed
+Distance Distribution Test: Killed
+
+
+Operator RN_1.0
+Environement: myCartPole-v1, Model dqn, Mutation RN_1.0
+Average Mutated/Healthy Ratio Test : 0.3
+Reward Distribution Test : Inconclusive
+Distance Distribution Test: Killed
+
+
+Operator NDF
+Environement: myCartPole-v1, Model dqn, Mutation NDF
+Average Mutated/Healthy Ratio Test : 1.0
+Reward Distribution Test : Killed
+Distance Distribution Test: Killed
+
+
+Operator MSU
+Environement: myCartPole-v1, Model dqn, Mutation MSU
+Average Mutated/Healthy Ratio Test : 1.0
+Reward Distribution Test : Killed
+Distance Distribution Test: Killed
+
+
+Operator MTS
+Environement: myCartPole-v1, Model dqn, Mutation MTS
+Average Mutated/Healthy Ratio Test : 1.0
+Reward Distribution Test : Killed
+Distance Distribution Test: Killed
+
+
+Operator PAC_Sigmoid
+Environement: myCartPole-v1, Model dqn, Mutation PAC_Sigmoid
+Average Mutated/Healthy Ratio Test : 0.95
+Reward Distribution Test : Killed
+Distance Distribution Test: Killed
+
+
+Operator POC_SGD
+Environement: myCartPole-v1, Model dqn, Mutation POC_SGD
+Average Mutated/Healthy Ratio Test : 1.0
+Reward Distribution Test : Killed
+Distance Distribution Test: Killed
+
+

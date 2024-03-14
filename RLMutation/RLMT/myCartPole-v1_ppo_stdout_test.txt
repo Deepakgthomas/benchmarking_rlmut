@@ -20,3 +20,7 @@ Running Operator random Value 1.0
 env_address =  /home/thoma/benchmarking_rlmut/custom_env/custom_cartpole_dqn/
 Running Operator mangled Value 1.0
 env_address =  /home/thoma/benchmarking_rlmut/custom_env/custom_cartpole_dqn/
+Running Operator incorrect_loss_function Value None
+env_address =  /home/thoma/benchmarking_rlmut/custom_env/custom_cartpole_dqn/
+Running Healthy Agent
+env_address =  /home/thoma/benchmarking_rlmut/custom_env/custom_cartpole_dqn/

@@ -15,12 +15,17 @@ Steps for execution -
 
 3. Unzip the folders "Healthy_Agents" and "Mutated_Agents" in the directory "experiments". The folder structure should look like this - `RLMutation/experiments`
 
-4. Install the custom gym environment -
-```
-cd custom_env/custom_cartpole/cartpole_folder 
-pip install -e .
+4. Install the two custom gym environments, myCartPole-v1 and myLunarLander-v1. The environments were created based on instructions given [here](https://www.gymlibrary.dev/content/environment_creation/)
 
-to-do - Update this for lunarlander
+a. Installing myCartPole-v1
+```
+cd custom_env/custom_cartpole 
+pip install -e .
+```
+b. Installing myLunarLander-v1
+```
+cd custom_env/custom_lunarlander 
+pip install -e .
 ```
 
 5. Install the packages for RLMutation
@@ -29,9 +34,12 @@ cd RLMutation
 pip install -r requirements.txt
 cd RLMT
 ```
-The old environment is hardcoded. We can only rename either one of the environments right now - 
-LumarLander or CartPole
-6. We want to run the trained agents downloaded in step 3. on our own environments, without significantly modifying the programs written by [1]. Their RL testing program searches for a trained agent using a path that contains the name of the current environment. Therefore, we need to rename the folders in the `experiments` directory using the names of our environments.
+6. To benchmarking RLMutation against custom environment configurations, store them in a folder called configurations - `RLMutation/configurations`
+7. Run the python program `benchmark_rlmutation.py` after going into the directory `RLMutation/RLMT`
+
+How does the program work? 
+
+1. RLMutation stores its saved models (that we want to use) using the environment name. Since we are using our own environments on their stored models, we'd like to rename those folders.  This allows RLMutation to still use those models. Therefore, the Python function `rename()` does that.
 ```commandline
 bash rename_folders_mutated.sh old_environment_name new_environment_name algorithm_name
 bash rename_folders_healthy.sh old_environment_name new_environment_name algorithm_name
@@ -44,7 +52,7 @@ bash rename_folders_healthy.sh CartPole-V1 myCartPole-v1 PPO
 
 ```
 
-7. To evaluate the trained agents on our test environments run - 
+2. To evaluate RLMutation's trained agents on our test environments, we use the function `run_test()`. This inturn calls the functions created by RLMutation to run their saved models on specified environments.
 ```commandline
 bash run_test_agent.sh new_environment_name algorithm_name
 ```
@@ -53,15 +61,14 @@ For example -
 bash run_test_agent.sh myCartPole-v1 ppo 
 ```
 
-8. To get the results of the mutation testing process run - 
-This needs to be updated based on my run_confs.py file
+3. The final step involves computing the mutation scores.  
 ```commandline
-bash mutation_results.sh new_environment_name algorithm_name
+bash mutation_results.sh new_environment_name algorithm_name test_generator_type mutant_type_from_file
 ```
 For example - 
 ```commandline
-bash mutation_results.sh myCartPole-v1 ppo
+bash mutation_results.sh myCartPole-v1 ppo string gamma
 ```
-The results should be stored in the file - `output.txt`
+The results should be stored in the file - `output_myCartPole-v1_ppo_strong_gamma_stdout_mutation_result.txt`. It consists of 3 mutation killing definitions for each operator. We are interested in "Distance Distribution Test"
 
 [1]. Tambon, Florian, et al. "Mutation Testing of Deep Reinforcement Learning Based on Real Faults." 2023 IEEE Conference on Software Testing, Verification and Validation (ICST). IEEE, 2023.
