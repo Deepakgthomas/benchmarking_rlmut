@@ -19,13 +19,11 @@ Steps for execution -
 
 a. Installing myCartPole-v1
 ```
-cd custom_env/custom_cartpole 
-pip install -e .
+pip install -e custom_env/custom_cartpole 
 ```
 b. Installing myLunarLander-v1
 ```
-cd custom_env/custom_lunarlander 
-pip install -e .
+pip install -e custom_env/custom_lunarlander 
 ```
 
 5. Install the packages for RLMutation
