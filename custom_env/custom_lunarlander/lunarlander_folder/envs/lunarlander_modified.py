@@ -1,5 +1,6 @@
 #gym == 0.21.0
 import os
+import copy
 """
 Rocket trajectory optimization is a classic topic in Optimal Control.
 
@@ -577,13 +578,9 @@ class myLunarLanderEnv(LunarLander):
         file = open(str(file_path))
         content = file.readlines()
         for line in content:
-            print("line.split = ", line.split("#"))
             height_str, force_str = line.split("#")
-            print("height_str = ", height_str, " force_str = ", force_str)
             tem_height = [float(num) for num in height_str.strip()[1:-1].split(',')]
-            print("tem_height = ", tem_height)
             temp_force = tuple(float(num) for num in force_str.strip()[1:-1].split(','))
-            print("temp_force = ", temp_force)
             self.height.append(tem_height)
             self.force.append(temp_force)
 
