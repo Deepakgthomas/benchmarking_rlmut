@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "test_agent.py", line 88, in <module>
+    agent.init_agent(test=True)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 130, in init_agent
+    self.init_env(test)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 90, in init_env
+    self.environment = gym.make(self.environment)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/gym/envs/registration.py", line 235, in make
+    return registry.make(id, **kwargs)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/gym/envs/registration.py", line 129, in make
+    env = spec.make(**kwargs)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/gym/envs/registration.py", line 90, in make
+    env = cls(**_kwargs)
+  File "/home/thoma/benchmarking_rlmut/custom_env/custom_lunarlander/lunarlander_folder/envs/lunarlander_modified.py", line 574, in __init__
+    with open(filename, 'r') as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'testing-mlp-nn-3-test_agent-0-strong.txt'

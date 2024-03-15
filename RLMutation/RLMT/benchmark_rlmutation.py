@@ -6,8 +6,8 @@ import shutil
 
 
 def run_test(new_environment_name, algorithm):
-    stdout_file_name = str(new_environment_name)+"_"+str(algorithm)+"_"+"stdout_test.txt"
-    stderr_file_name = str(new_environment_name)+"_"+str(algorithm)+"_"+"stderr_test.txt"
+    stdout_file_name = str(misc_stdout_err)+ "/" + str(new_environment_name)+"_"+str(algorithm)+"_"+"stdout_test.txt"
+    stderr_file_name = str(misc_stdout_err)+ "/" + str(new_environment_name)+"_"+str(algorithm)+"_"+"stderr_test.txt"
 
     test_agent_script = "run_test_agent.sh"
 
@@ -19,8 +19,8 @@ def run_test(new_environment_name, algorithm):
 
 
 def compute_mutation_results(new_environment_name, algorithm, test_generator_type, mutant_type_from_file):
-    stdout_file_name = str(new_environment_name)+"_"+str(algorithm)+"_"+str(test_generator_type)+"_"+str(mutant_type_from_file)+"_"+"stdout_mutation_result.txt"
-    stderr_file_name = str(new_environment_name)+"_"+str(algorithm)+"_"+str(test_generator_type)+"_"+str(mutant_type_from_file)+"_"+"stderr_mutation_result.txt"
+    stdout_file_name = str(results_dir)+ "/"+ str(new_environment_name)+"_"+str(algorithm)+"_"+str(test_generator_type)+"_"+str(mutant_type_from_file)+"_"+"stdout_mutation_result.txt"
+    stderr_file_name = str(misc_stdout_err)+ "/"+ str(new_environment_name)+"_"+str(algorithm)+"_"+str(test_generator_type)+"_"+str(mutant_type_from_file)+"_"+"stderr_mutation_result.txt"
     test_agent_script = "mutation_results.sh"
     command = ["bash", test_agent_script, new_environment_name, algorithm, test_generator_type, mutant_type_from_file]
     with open(stdout_file_name, "w") as stdout, open(stderr_file_name, "w") as stderr:
@@ -91,14 +91,16 @@ def rename():
                     rename_program_script="rename_folders_mutated.sh"
 
                 # Calling the bash operations here
-                stdout_file_name = str(new_environment_name) + "_" + str(algos) + "_" + "stdout_rename.txt"
-                stderr_file_name = str(new_environment_name) + "_" + str(algos) + "_" + "stderr_rename.txt"
+                stdout_file_name = str(misc_stdout_err)+ "/" + str(new_environment_name) + "_" + str(algos) + "_" + "stdout_rename.txt"
+                stderr_file_name = str(misc_stdout_err)+ "/" + str(new_environment_name) + "_" + str(algos) + "_" + "stderr_rename.txt"
                 command = ["bash", rename_program_script, old_environment_name, new_environment_name, algos]
                 with open(stdout_file_name, "w") as stdout, open(stderr_file_name, "w") as stderr:
                     result = subprocess.run(command, stdout=stdout, stderr=stderr, check=True)
 
 
 def run_tool(directory):
+
+
     '''
     The first step involves calling the rename function. It renames the stored
     RL model folders with our environment names
@@ -124,6 +126,9 @@ def run_tool(directory):
                 # Create a temporary folder (destination_folder) folder from where the custom environments will take
                 # the environment configuration files.
                 destination_folder = 'testing'
+                if os.path.exists(destination_folder):
+                    # Delete the folder
+                    shutil.rmtree(destination_folder)
                 os.makedirs(destination_folder)
                 shutil.copy(file_path, destination_folder)
                 new_environment_name=""
@@ -143,7 +148,15 @@ def run_tool(directory):
                 '''
                 compute_mutation_results(new_environment_name, algorithm, test_generator_type, mutant_type_from_file)
 
-
+results_dir = 'results_mutation_benchmark'
+if os.path.exists(results_dir):
+    print("Deleting old results")
+    shutil.rmtree(results_dir)
+os.makedirs(results_dir)
+misc_stdout_err = 'stdout_err'
+if os.path.exists(misc_stdout_err):
+    shutil.rmtree(misc_stdout_err)
+os.makedirs(misc_stdout_err)
 def main():
     # # Provide the top-level directory where your files are located
     top_directory = 'configurations'
