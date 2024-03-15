@@ -1,5 +1,5 @@
 #gym == 0.21.0
-
+import os
 """
 Rocket trajectory optimization is a classic topic in Optimal Control.
 
@@ -567,18 +567,21 @@ class myLunarLanderEnv(LunarLander):
         self.episode_number = 0
         self.test_gen = []
         #todo Check
-        filename = "testing-mlp-nn-3-test_agent-0-strong.txt"
         self.height = []
         self.force = []
-
-        with open(filename, 'r') as file:
-            content = file.readlines()
-            for line in content:
-                height_str, force_str = line.split("#")
-                tem_height = [float(num) for num in height_str.strip()[1:-1].split(',')]
-                temp_force = tuple(float(num) for num in force_str.strip()[1:-1].split(','))
-                self.height.append(tem_height)
-                self.force.append(temp_force)
+        current_directory = os.getcwd()
+        folder_path = os.path.join(current_directory, "testing")
+        files = os.listdir(folder_path)
+        txt_files = [file for file in files if file.endswith('.txt')][-1]
+        file_path = os.path.join(folder_path, txt_files)
+        file = open(str(file_path))
+        content = file.readlines()
+        for line in content:
+            height_str, force_str = line.split("#")
+            tem_height = [float(num) for num in height_str.strip()[1:-1].split(',')]
+            temp_force = tuple(float(num) for num in force_str.strip()[1:-1].split(','))
+            self.height.append(tem_height)
+            self.force.append(temp_force)
 
     def reset(self):
         self._destroy()
