@@ -14,7 +14,13 @@ def rename_folders(directory_path, old_substring, new_substring):
             # Check if it's a directory
             if os.path.isdir(old_folder_path):
 
-
+                '''
+                This is needed when benchmark_rlmutation.py detects that the parent directory has already been renamed. 
+                However, the child directory within the logs folder is yet to be renamed. 
+                This is because the parent directory, for instance, 
+                RLMutation/experiments/Mutated_Agents/SingleOrderMutation/incorrect_loss_function/CartPole-v1,
+                has multiple algorithms, namely DQN, PPO and A2C associated with it. 
+                '''
                 # Replace the specified substring in the folder name
                 if old_substring==new_substring and old_substring not in folder_name and "logs" in old_folder_path:
                     if "CartPole" in old_substring:
@@ -25,17 +31,22 @@ def rename_folders(directory_path, old_substring, new_substring):
 
 
                 # Construct the full paths for the old and new folders
-                old_folder_path = os.path.join(directory_path, folder_name)
+                older_folder_path = os.path.join(directory_path, folder_name)
                 new_folder_path = os.path.join(directory_path, new_folder_name)
 
                 try:
                     # Rename the folder
-                    os.rename(old_folder_path, new_folder_path)
+                    os.rename(older_folder_path, new_folder_path)
                     # print(f"Folder '{folder_name}' successfully renamed to '{new_folder_name}'.")
                 except FileExistsError:
                     print(f"Error: Folder '{new_folder_name}' already exists.")
 
     else:
+        '''
+        This error might occur if you are directly using the Bash programs developed to 
+        rename environments for multiple algorithms
+        '''
+
         print("Path ",  directory_path, " doesn't exist")
 
 
@@ -93,12 +104,14 @@ else:
 
 
 old_substring = str(args.old_environment_name)
-print("old_substring = ", old_substring)
 
 new_substring = str(args.new_environment_name)
 
-print("new_substring = ", new_substring)
-
+'''
+"policy_activation_change" operator is a special case as it has two corresponding values - ReLU and Sigmoid
+Therefore, the program has to traverse through some paths multiple times. However, the second time a path is traversed, the names of
+some folders in the path would have changed and would need to be updated. 
+'''
 if args.operator == "policy_activation_change" and not os.path.exists(first_dir_path):
     first_dir_path = str(parent_directory) + '/experiments/Mutated_Agents/SingleOrderMutation/' + str(args.operator) + '/' + str(args.new_environment_name) + '/' + str(args.algorithm) + '/' + str(args.operator_value) + '/logs'
     second_dir_path = str(parent_directory) + '/experiments/Mutated_Agents/SingleOrderMutation/' + str(args.operator)
