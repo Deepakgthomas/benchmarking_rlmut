@@ -39,7 +39,7 @@ for arg in "${!operators[@]}"; do
 
   for val in ${operators[${arg}]}; do
 
-    python rename_program.py mutated $1 $2 -operator ${arg} -algorithm $3 -op ${val}
+    python rename_program.py mutated $1 $2 --operator ${arg} --algorithm $3 -op_val ${val}
 
   done
 
