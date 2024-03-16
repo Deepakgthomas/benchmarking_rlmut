@@ -67,8 +67,8 @@ elif args.agent_type=='mutated':
 
 
 
-    if args.op_val!="None":
-        first_dir_path = str(parent_directory) + '/experiments/Mutated_Agents/SingleOrderMutation/' + str(args.operator) + '/'+str(args.old_environment_name)+'/'+str(args.algorithm)+'/' + str(args.op_val) + '/logs'
+    if args.operator_value!="None":
+        first_dir_path = str(parent_directory) + '/experiments/Mutated_Agents/SingleOrderMutation/' + str(args.operator) + '/'+str(args.old_environment_name)+'/'+str(args.algorithm)+'/' + str(args.operator_value) + '/logs'
         second_dir_path = str(parent_directory) + '/experiments/Mutated_Agents/SingleOrderMutation/' + str(args.operator)
 
     else:
@@ -91,7 +91,7 @@ new_substring = str(args.new_environment_name)
 print("new_substring = ", new_substring)
 
 if args.operator == "policy_activation_change" and not os.path.exists(first_dir_path):
-    first_dir_path = str(parent_directory) + '/experiments/Mutated_Agents/SingleOrderMutation/' + str(args.operator) + '/' + str(args.new_environment_name) + '/' + str(args.algorithm) + '/' + str(args.op_val) + '/logs'
+    first_dir_path = str(parent_directory) + '/experiments/Mutated_Agents/SingleOrderMutation/' + str(args.operator) + '/' + str(args.new_environment_name) + '/' + str(args.algorithm) + '/' + str(args.operator_value) + '/logs'
     second_dir_path = str(parent_directory) + '/experiments/Mutated_Agents/SingleOrderMutation/' + str(args.operator)
     rename_folders(first_dir_path, old_substring, new_substring)
 else:
