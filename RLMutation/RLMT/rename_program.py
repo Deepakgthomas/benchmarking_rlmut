@@ -48,9 +48,18 @@ parser.add_argument('-algo', '--algorithm', required=False,help='Enter the name 
 parser.add_argument('-op_val', '--operator_value', required=False ,help = 'Enter the value of the operator parameter')
 args = parser.parse_args()
 
+'''
+first_dir_path addresses the immediate child folders corresponding to the folders inside the logs directory. For instance: 
+/benchmarking_rlmut/RLMutation/experiments/Mutated_Agents/SingleOrderMutation/incorrect_loss_function/mymyCartPole-v1/PPO/logs/ILF_ppo_myCartPole-v1_0
+
+second_dir_path addresses the immediate child folders corresponding either to the Healthy_Agents or Mutated_Agents directory
+'''
+
 if args.agent_type=='healthy':
     if args.old_environment_name in {"CartPole-V1", "LunarLander-V2"}:
-        print("The capital V in -V will pose a problem. Manually changing it to v")
+        '''
+        The capital V in -V will pose a problem. Manually changing it to v
+        '''
         dir_path = str(parent_directory) + '/experiments/Healthy_Agents'
         old_substring = args.old_environment_name
         new_substring = args.old_environment_name[:-2] + args.old_environment_name[-2:].lower()
