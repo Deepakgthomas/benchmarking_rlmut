@@ -1,8 +1,8 @@
 import os
 import sys
 import argparse
-full_path = os.path.abspath(os.path.dirname(__file__))
 
+full_path = os.path.abspath(os.path.dirname(__file__))
 parent_directory = os.path.dirname(full_path)
 
 def rename_folders(directory_path, old_substring, new_substring):
@@ -49,7 +49,6 @@ def rename_folders(directory_path, old_substring, new_substring):
 
         print("Path ",  directory_path, " doesn't exist")
 
-
 parser = argparse.ArgumentParser()
 parser.add_argument('agent_type', help = 'Enter whether the agent is healthy or mutated')
 parser.add_argument('old_environment_name', help='Enter the name of the environment name you want to replace')
@@ -58,6 +57,14 @@ parser.add_argument('-op', '--operator', required=False,help = 'Enter the name o
 parser.add_argument('-algo', '--algorithm', required=False,help='Enter the name of the algorithm')
 parser.add_argument('-op_val', '--operator_value', required=False ,help = 'Enter the value of the operator parameter')
 args = parser.parse_args()
+
+print("Agent Type = ", args.agent_type)
+print("Old Environment Name = ", args.old_environment_name)
+print("New Environment Name = ", args.new_environment_name)
+print("Mutation Operator = ", args.operator)
+print("Algorithm = ", args.algorithm)
+print("Mutation Operator Value = ", args.operator_value)
+
 
 '''
 first_dir_path addresses the immediate child folders corresponding to the folders inside the logs directory. For instance: 

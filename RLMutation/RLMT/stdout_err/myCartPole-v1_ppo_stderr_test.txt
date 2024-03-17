@@ -1,0 +1,473 @@
+Process Process-16:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 88, in evaluate_policy
+    actions, states = model.predict(observations, state=states, episode_start=episode_starts, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/base_class.py", line 632, in predict
+    return self.policy.predict(observation, state, episode_start, deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 336, in predict
+    actions = self._predict(observation, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 629, in _predict
+    return self.get_distribution(observation).get_actions(deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 658, in get_distribution
+    return self._get_action_dist_from_latent(latent_pi)
+KeyboardInterrupt
+Process Process-28:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 88, in evaluate_policy
+    actions, states = model.predict(observations, state=states, episode_start=episode_starts, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/base_class.py", line 632, in predict
+    return self.policy.predict(observation, state, episode_start, deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 336, in predict
+    actions = self._predict(observation, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 629, in _predict
+    return self.get_distribution(observation).get_actions(deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/distributions.py", line 79, in get_actions
+    return self.mode()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/distributions.py", line 288, in mode
+    return th.argmax(self.distribution.probs, dim=1)
+KeyboardInterrupt
+Process Process-29:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 88, in evaluate_policy
+    actions, states = model.predict(observations, state=states, episode_start=episode_starts, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/base_class.py", line 632, in predict
+    return self.policy.predict(observation, state, episode_start, deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 336, in predict
+    actions = self._predict(observation, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 629, in _predict
+    return self.get_distribution(observation).get_actions(deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 658, in get_distribution
+    return self._get_action_dist_from_latent(latent_pi)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 609, in _get_action_dist_from_latent
+    return self.action_dist.proba_distribution(action_logits=mean_actions)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/distributions.py", line 275, in proba_distribution
+    self.distribution = Categorical(logits=action_logits)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/distributions/categorical.py", line 60, in __init__
+    self.logits = logits - logits.logsumexp(dim=-1, keepdim=True)
+KeyboardInterrupt
+Process Process-31:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 88, in evaluate_policy
+    actions, states = model.predict(observations, state=states, episode_start=episode_starts, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/base_class.py", line 632, in predict
+    return self.policy.predict(observation, state, episode_start, deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 336, in predict
+    actions = self._predict(observation, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 629, in _predict
+    return self.get_distribution(observation).get_actions(deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 658, in get_distribution
+    return self._get_action_dist_from_latent(latent_pi)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 609, in _get_action_dist_from_latent
+    return self.action_dist.proba_distribution(action_logits=mean_actions)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/distributions.py", line 275, in proba_distribution
+    self.distribution = Categorical(logits=action_logits)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/distributions/categorical.py", line 60, in __init__
+    self.logits = logits - logits.logsumexp(dim=-1, keepdim=True)
+KeyboardInterrupt
+Process Process-30:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 90, in evaluate_policy
+    current_rewards += rewards
+KeyboardInterrupt
+Process Process-13:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 88, in evaluate_policy
+    actions, states = model.predict(observations, state=states, episode_start=episode_starts, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/base_class.py", line 632, in predict
+    return self.policy.predict(observation, state, episode_start, deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 333, in predict
+    observation, vectorized_env = self.obs_to_tensor(observation)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 250, in obs_to_tensor
+    observation = observation.reshape((-1,) + self.observation_space.shape)
+KeyboardInterrupt
+Process Process-27:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 88, in evaluate_policy
+    actions, states = model.predict(observations, state=states, episode_start=episode_starts, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/base_class.py", line 632, in predict
+    return self.policy.predict(observation, state, episode_start, deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 333, in predict
+    observation, vectorized_env = self.obs_to_tensor(observation)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 252, in obs_to_tensor
+    observation = obs_as_tensor(observation, self.device)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 150, in device
+    for param in self.parameters():
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1535, in parameters
+    for name, param in self.named_parameters(recurse=recurse):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1561, in named_parameters
+    for elem in gen:
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1505, in _named_members
+    for module_prefix, module in modules:
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1710, in named_modules
+    for m in module.named_modules(memo, submodule_prefix, remove_duplicate):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1710, in named_modules
+    for m in module.named_modules(memo, submodule_prefix, remove_duplicate):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1710, in named_modules
+    for m in module.named_modules(memo, submodule_prefix, remove_duplicate):
+KeyboardInterrupt
+Process Process-24:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 88, in evaluate_policy
+    actions, states = model.predict(observations, state=states, episode_start=episode_starts, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/base_class.py", line 632, in predict
+    return self.policy.predict(observation, state, episode_start, deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 336, in predict
+    actions = self._predict(observation, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 629, in _predict
+    return self.get_distribution(observation).get_actions(deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/distributions.py", line 79, in get_actions
+    return self.mode()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/distributions.py", line 288, in mode
+    return th.argmax(self.distribution.probs, dim=1)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/distributions/utils.py", line 109, in __get__
+    with torch.enable_grad():
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/autograd/grad_mode.py", line 169, in __enter__
+    def __enter__(self) -> None:
+KeyboardInterrupt
+Process Process-21:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 88, in evaluate_policy
+    actions, states = model.predict(observations, state=states, episode_start=episode_starts, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/base_class.py", line 632, in predict
+    return self.policy.predict(observation, state, episode_start, deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 336, in predict
+    actions = self._predict(observation, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 629, in _predict
+    return self.get_distribution(observation).get_actions(deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 658, in get_distribution
+    return self._get_action_dist_from_latent(latent_pi)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 609, in _get_action_dist_from_latent
+    return self.action_dist.proba_distribution(action_logits=mean_actions)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/distributions.py", line 275, in proba_distribution
+    self.distribution = Categorical(logits=action_logits)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/distributions/categorical.py", line 60, in __init__
+    self.logits = logits - logits.logsumexp(dim=-1, keepdim=True)
+KeyboardInterrupt
+Process Process-19:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 88, in evaluate_policy
+    actions, states = model.predict(observations, state=states, episode_start=episode_starts, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/base_class.py", line 632, in predict
+    return self.policy.predict(observation, state, episode_start, deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 336, in predict
+    actions = self._predict(observation, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 629, in _predict
+    return self.get_distribution(observation).get_actions(deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 658, in get_distribution
+    return self._get_action_dist_from_latent(latent_pi)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 609, in _get_action_dist_from_latent
+    return self.action_dist.proba_distribution(action_logits=mean_actions)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/distributions.py", line 275, in proba_distribution
+    self.distribution = Categorical(logits=action_logits)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/distributions/categorical.py", line 64, in __init__
+    super(Categorical, self).__init__(batch_shape, validate_args=validate_args)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/distributions/distribution.py", line 53, in __init__
+    valid = constraint.check(value)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/distributions/constraints.py", line 214, in check
+    result = result.all(-1)
+KeyboardInterrupt
+Process Process-26:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 88, in evaluate_policy
+    actions, states = model.predict(observations, state=states, episode_start=episode_starts, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/base_class.py", line 632, in predict
+    return self.policy.predict(observation, state, episode_start, deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 336, in predict
+    actions = self._predict(observation, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 629, in _predict
+    return self.get_distribution(observation).get_actions(deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/distributions.py", line 79, in get_actions
+    return self.mode()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/distributions.py", line 288, in mode
+    return th.argmax(self.distribution.probs, dim=1)
+KeyboardInterrupt
+Process Process-12:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 89, in evaluate_policy
+    observations, rewards, dones, infos = env.step(actions)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/vec_env/base_vec_env.py", line 162, in step
+    return self.step_wait()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 51, in step_wait
+    return (self._obs_from_buf(), np.copy(self.buf_rews), np.copy(self.buf_dones), deepcopy(self.buf_infos))
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 99, in _obs_from_buf
+    return dict_to_obs(self.observation_space, copy_obs_dict(self.buf_obs))
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/vec_env/util.py", line 42, in dict_to_obs
+    assert set(obs_dict.keys()) == {None}, "multiple observation keys for unstructured observation space"
+KeyboardInterrupt
+Process Process-15:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 89, in evaluate_policy
+    observations, rewards, dones, infos = env.step(actions)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/vec_env/base_vec_env.py", line 162, in step
+    return self.step_wait()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 51, in step_wait
+    return (self._obs_from_buf(), np.copy(self.buf_rews), np.copy(self.buf_dones), deepcopy(self.buf_infos))
+  File "<__array_function__ internals>", line 180, in copy
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/numpy/lib/function_base.py", line 870, in copy
+    @array_function_dispatch(_copy_dispatcher)
+KeyboardInterrupt
+Process Process-17:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 88, in evaluate_policy
+    actions, states = model.predict(observations, state=states, episode_start=episode_starts, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/base_class.py", line 632, in predict
+    return self.policy.predict(observation, state, episode_start, deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 336, in predict
+    actions = self._predict(observation, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 629, in _predict
+    return self.get_distribution(observation).get_actions(deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 658, in get_distribution
+    return self._get_action_dist_from_latent(latent_pi)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 609, in _get_action_dist_from_latent
+    return self.action_dist.proba_distribution(action_logits=mean_actions)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/distributions.py", line 275, in proba_distribution
+    self.distribution = Categorical(logits=action_logits)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/distributions/categorical.py", line 60, in __init__
+    self.logits = logits - logits.logsumexp(dim=-1, keepdim=True)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "test_agent.py", line 104, in <module>
+    process.join()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/popen_fork.py", line 47, in wait
+    return self.poll(os.WNOHANG if timeout == 0.0 else 0)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/popen_fork.py", line 27, in poll
+    pid, sts = os.waitpid(self.pid, flag)
+KeyboardInterrupt
+Process Process-18:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 88, in evaluate_policy
+    actions, states = model.predict(observations, state=states, episode_start=episode_starts, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/base_class.py", line 632, in predict
+    return self.policy.predict(observation, state, episode_start, deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 336, in predict
+    actions = self._predict(observation, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 629, in _predict
+    return self.get_distribution(observation).get_actions(deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 657, in get_distribution
+    latent_pi = self.mlp_extractor.forward_actor(features)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/torch_layers.py", line 233, in forward_actor
+    return self.policy_net(self.shared_net(features))
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/container.py", line 141, in forward
+    input = module(input)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/activation.py", line 357, in forward
+    return torch.tanh(input)
+KeyboardInterrupt
+Process Process-14:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 88, in evaluate_policy
+    actions, states = model.predict(observations, state=states, episode_start=episode_starts, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/base_class.py", line 632, in predict
+    return self.policy.predict(observation, state, episode_start, deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 336, in predict
+    actions = self._predict(observation, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 629, in _predict
+    return self.get_distribution(observation).get_actions(deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 657, in get_distribution
+    latent_pi = self.mlp_extractor.forward_actor(features)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/torch_layers.py", line 233, in forward_actor
+    return self.policy_net(self.shared_net(features))
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/container.py", line 141, in forward
+    input = module(input)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/activation.py", line 356, in forward
+    def forward(self, input: Tensor) -> Tensor:
+KeyboardInterrupt
+Process Process-23:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 88, in evaluate_policy
+    actions, states = model.predict(observations, state=states, episode_start=episode_starts, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/base_class.py", line 632, in predict
+    return self.policy.predict(observation, state, episode_start, deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 336, in predict
+    actions = self._predict(observation, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 629, in _predict
+    return self.get_distribution(observation).get_actions(deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 657, in get_distribution
+    latent_pi = self.mlp_extractor.forward_actor(features)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/torch_layers.py", line 233, in forward_actor
+    return self.policy_net(self.shared_net(features))
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/container.py", line 141, in forward
+    input = module(input)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/activation.py", line 357, in forward
+    return torch.tanh(input)
+KeyboardInterrupt
+Process Process-25:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 89, in evaluate_policy
+    observations, rewards, dones, infos = env.step(actions)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/vec_env/base_vec_env.py", line 162, in step
+    return self.step_wait()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 43, in step_wait
+    obs, self.buf_rews[env_idx], self.buf_dones[env_idx], self.buf_infos[env_idx] = self.envs[env_idx].step(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/monitor.py", line 95, in step
+    self.rewards.append(reward)
+KeyboardInterrupt
+Process Process-22:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 89, in evaluate_policy
+    observations, rewards, dones, infos = env.step(actions)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/vec_env/base_vec_env.py", line 162, in step
+    return self.step_wait()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 51, in step_wait
+    return (self._obs_from_buf(), np.copy(self.buf_rews), np.copy(self.buf_dones), deepcopy(self.buf_infos))
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 99, in _obs_from_buf
+    return dict_to_obs(self.observation_space, copy_obs_dict(self.buf_obs))
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/vec_env/util.py", line 22, in copy_obs_dict
+    return OrderedDict([(k, np.copy(v)) for k, v in obs.items()])
+KeyboardInterrupt
+Process Process-20:
+Traceback (most recent call last):
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/thoma/benchmarking_rlmut/RLMutation/RLMT/agent.py", line 166, in test
+    mean_reward, std_reward = evaluate_policy(
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/evaluation.py", line 88, in evaluate_policy
+    actions, states = model.predict(observations, state=states, episode_start=episode_starts, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/base_class.py", line 632, in predict
+    return self.policy.predict(observation, state, episode_start, deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 336, in predict
+    actions = self._predict(observation, deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 629, in _predict
+    return self.get_distribution(observation).get_actions(deterministic=deterministic)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 657, in get_distribution
+    latent_pi = self.mlp_extractor.forward_actor(features)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/stable_baselines3/common/torch_layers.py", line 233, in forward_actor
+    return self.policy_net(self.shared_net(features))
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/container.py", line 141, in forward
+    input = module(input)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/torch/nn/modules/activation.py", line 357, in forward
+    return torch.tanh(input)
+KeyboardInterrupt
