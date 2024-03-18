@@ -1,10 +1,10 @@
 import sys
 import os
-
+import pandas as pd
 from collections import defaultdict
-operator_dict = defaultdict(lambda: defaultdict(dict)) #todo Not sure of this. Check it.
+operator_dict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(dict))))#todo Not sure of this. Check it.
 
-folder_path = '/home/thoma/Downloads/results_mutation_benchmark'
+folder_path = 'final_result'
 files = os.listdir(folder_path)
 for file_name in files:
     # Construct the full path to the file
@@ -22,9 +22,16 @@ for file_name in files:
             environment = "LunarLander-v2"
         if "_strong_" in file_name:
             test_generator_type = "strong"
+            start_index=file_name.find("_strong_")
+            end_index=file_name.find("_stdout_")
+            mutation_type = file_name[start_index + len("_strong_"):end_index]
         else:
             test_generator_type = "weak"
-        operator_dict[str(algorithm)][str(environment)][str(test_generator_type)] = defaultdict(list)
+            start_index=file_name.find("_weak_")
+            end_index=file_name.find("_stdout_")
+            mutation_type = file_name[start_index + len("_weak_"):end_index]
+
+        operator_dict[str(algorithm)][str(environment)][str(test_generator_type)][str(mutation_type)] = defaultdict(int)
 
         # Open the file for processing
         with open(file_path, 'r') as file:
@@ -38,17 +45,17 @@ for file_name in files:
                     if ready_to_append:
                         mutation_result = str_val.replace("Distance Distribution Test :","").strip()
                         if "Not Killed" in mutation_result:
-                            operator_dict[str(algorithm)][str(environment)][str(test_generator_type)][str(operator_value)].append(0)
+                            operator_dict[str(algorithm)][str(environment)][str(test_generator_type)][str(mutation_type)][str(operator_value)]=0
 
                         elif "Inconclusive" in mutation_result:
                             print("Something is wrong. Exit system")
                             sys.exit()
                         else:
-                            operator_dict[str(algorithm)][str(environment)][str(test_generator_type)][str(operator_value)].append(1) #todo Come up with a better way to represent killed
+                            operator_dict[str(algorithm)][str(environment)][str(test_generator_type)][str(mutation_type)][str(operator_value)]=1 #todo Come up with a better way to represent killed
 
                         ready_to_append = False
 
-print(operator_dict)
 
-
-
+out = pd.json_normalize(operator_dict)
+out.columns = out.columns.str.split('.', expand=True,n=4) #Check this
+out.to_csv("final_result.csv")
