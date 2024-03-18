@@ -58,4 +58,16 @@ for file_name in files:
 
 out = pd.json_normalize(operator_dict)
 out.columns = out.columns.str.split('.', expand=True,n=4) #Check this
-out.to_csv("final_result.csv")
+
+
+# Check this carefully
+# Group by all levels of the multi-level column
+sum_data = out.groupby(level=[0, 1,2,3], axis = 1).sum()
+count_data = out.groupby(level=[0, 1,2,3], axis = 1).count()
+result_df = pd.concat([sum_data, count_data], axis=0, keys=['Sum', 'Count'])
+result_df.index = result_df.index.droplevel(-1) #todo Very dangerous operation! Please check!!!
+result_df.loc['mutation_score'] = result_df.loc['Sum']/result_df.loc['Count']
+result_df.to_csv("final_result.csv")
+
+# Convert the grouped data into a DataFrame
+# result_df = pd.DataFrame(grouped_data).reset_index()
