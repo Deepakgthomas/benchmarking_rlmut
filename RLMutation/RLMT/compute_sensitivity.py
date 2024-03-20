@@ -4,6 +4,7 @@ import pandas as pd
 from collections import defaultdict
 operator_dict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(dict))))#todo Not sure of this. Check it.
 #todo - What about cases where the agent was neither killed nor not killed. How are you computing sensitivity there?
+#todo - Didn't find any inconclusive results for DtR as of now.
 folder_path = 'final_result'
 files = os.listdir(folder_path)
 data_list = []
