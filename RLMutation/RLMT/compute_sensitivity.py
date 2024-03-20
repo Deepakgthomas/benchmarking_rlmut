@@ -50,8 +50,7 @@ for file_name in files:
                             operator_dict[str(algorithm)][str(environment)][str(test_generator_type)][str(mutation_type)][str(operator_value)]=0
 
                         elif "Inconclusive" in mutation_result:
-                            print("Something is wrong. Exit system")
-                            sys.exit()
+                            operator_dict[str(algorithm)][str(environment)][str(test_generator_type)][str(mutation_type)][str(operator_value)]=0
                         else:
                             operator_dict[str(algorithm)][str(environment)][str(test_generator_type)][str(mutation_type)][str(operator_value)]=1 #todo Come up with a better way to represent killed
 

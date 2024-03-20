@@ -1,0 +1,10 @@
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/scipy/stats/_continuous_distns.py:6306: RuntimeWarning: divide by zero encountered in _ncf_sf
+  return _boost._ncf_sf(x, dfn, dfd, nc)
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/scipy/stats/_continuous_distns.py:6306: RuntimeWarning: divide by zero encountered in _ncf_sf
+  return _boost._ncf_sf(x, dfn, dfd, nc)
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/scipy/stats/_continuous_distns.py:6306: RuntimeWarning: divide by zero encountered in _ncf_sf
+  return _boost._ncf_sf(x, dfn, dfd, nc)
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/scipy/stats/_continuous_distns.py:6306: RuntimeWarning: divide by zero encountered in _ncf_sf
+  return _boost._ncf_sf(x, dfn, dfd, nc)
+/home/thoma/anaconda3/envs/benchmark/lib/python3.8/site-packages/scipy/stats/_continuous_distns.py:6306: RuntimeWarning: divide by zero encountered in _ncf_sf
+  return _boost._ncf_sf(x, dfn, dfd, nc)

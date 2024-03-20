@@ -1,0 +1,11 @@
+Running Operator reward_noise Value 1.0
+Running Operator repeat Value 1.0
+Running Operator missing_terminal_state Value None
+Running Operator no_discount_factor Value None
+Running Operator policy_optimizer_change Value SGD
+Running Operator policy_activation_change Value Sigmoid
+Running Operator missing_state_update Value None
+Running Operator random Value 1.0
+Running Operator mangled Value 1.0
+Running Operator incorrect_loss_function Value None
+Running Healthy Agent

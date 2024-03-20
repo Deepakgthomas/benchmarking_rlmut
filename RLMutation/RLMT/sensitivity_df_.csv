@@ -1,4 +1,4 @@
-,ppo,ppo,ppo,ppo,ppo,ppo,dqn,dqn,dqn,dqn,dqn
-,LunarLander-v2,LunarLander-v2,LunarLander-v2,LunarLander-v2,CartPole-v1,CartPole-v1,CartPole-v1,CartPole-v1,CartPole-v1,CartPole-v1,CartPole-v1
-,n_steps,n_timesteps,gamma,ent_coef,gamma,n_steps,n_timesteps,learning_starts,target_update_interval,exploration_final_eps,gamma
-0,0.0,-0.2500000000000001,0.0,0.16666666666666663,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+,ppo,ppo,ppo,ppo,ppo,ppo,dqn,dqn,dqn,dqn,dqn,dqn,dqn,dqn,dqn,dqn
+,LunarLander-v2,LunarLander-v2,LunarLander-v2,LunarLander-v2,CartPole-v1,CartPole-v1,LunarLander-v2,LunarLander-v2,LunarLander-v2,LunarLander-v2,LunarLander-v2,CartPole-v1,CartPole-v1,CartPole-v1,CartPole-v1,CartPole-v1
+,n_steps,n_timesteps,gamma,ent_coef,gamma,n_steps,learning_starts,exploration_final_eps,target_update_interval,gamma,n_timesteps,n_timesteps,learning_starts,target_update_interval,exploration_final_eps,gamma
+0,0.0,-0.2500000000000001,0.0,0.16666666666666663,0.0,0.0,-0.11111111111111108,-0.42857142857142866,-0.11111111111111108,-0.24999999999999994,-0.24999999999999994,0.0,0.0,0.0,0.0,0.0
