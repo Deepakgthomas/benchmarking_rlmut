@@ -81,7 +81,7 @@ bash mutation_results.sh new_environment_name algorithm_name test_generator_type
 ```
 For example - 
 ```commandline
-bash mutation_results.sh myCartPole-v1 ppo string gamma
+bash mutation_results.sh myCartPole-v1 ppo strong gamma
 ```
 The results should be stored in the file - `output_myCartPole-v1_ppo_strong_gamma_stdout_mutation_result.txt`. It consists of 3 mutation killing definitions for each operator. We are interested in "Distance Distribution Test"
 

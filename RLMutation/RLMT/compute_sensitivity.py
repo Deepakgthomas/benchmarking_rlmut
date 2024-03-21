@@ -1,10 +1,19 @@
 import sys
+import shutil
+
 import os
 import pandas as pd
 from collections import defaultdict
 operator_dict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(dict))))#todo Not sure of this. Check it.
 #todo - What about cases where the agent was neither killed nor not killed. How are you computing sensitivity there?
 #todo - Didn't find any inconclusive results for DtR as of now.
+
+rq2_folder="rq2_folder"
+if os.path.exists(rq2_folder):
+    # Delete the folder
+    shutil.rmtree(rq2_folder)
+os.makedirs(rq2_folder)
+
 folder_path = 'final_result'
 files = os.listdir(folder_path)
 data_list = []
@@ -59,7 +68,7 @@ for file_name in files:
 
 out = pd.json_normalize(operator_dict)
 out.columns = out.columns.str.split('.', expand=True,n=4) #Check this
-out.to_csv("final_result.csv")
+out.to_csv(str(rq2_folder)+"/final_result.csv")
 
 # Check this carefully
 # Group by all levels of the multi-level column
@@ -68,12 +77,7 @@ count_data = out.groupby(level=[0, 1,2,3], axis = 1).count()
 result_df = pd.concat([sum_data, count_data], axis=0, keys=['Sum', 'Count'])
 result_df.index = result_df.index.droplevel(-1) #todo Very dangerous operation! Please check!!!
 result_df.loc['mutation_score'] = result_df.loc['Sum']/result_df.loc['Count']
-# result_df.to_csv("mutation_score.csv")
-
-# Convert the grouped data into a DataFrame
-# result_df = pd.DataFrame(grouped_data).reset_index()
-mutation_score_dict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(dict))))#todo Not sure of this. Check it.
-
+result_df.to_csv(str(rq2_folder)+"/mutation_score.csv")
 
 
 # print(result_df.at['mutation_score', ('dqn', 'CartPole-v1', 'strong', 'constant')])
@@ -88,4 +92,4 @@ for i in data_list:
 # Checking git commit
 sensitivity_df = pd.json_normalize(sensitivity_dict)
 sensitivity_df.columns = sensitivity_df.columns.str.split('.', expand=True) #Check this
-sensitivity_df.to_csv("sensitivity_df_.csv")
+sensitivity_df.to_csv(str(rq2_folder)+"/sensitivity_df_.csv")
