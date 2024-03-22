@@ -1,0 +1,88 @@
+No,New Label Name,Label Description
+1,Unrelated,Posts marked with unrelated will be dropped
+2,Suboptimal Replay Buffer Design,"The design of the replay buffer inhibits learning, for instance using a circular buffer instead of prioritized experience replay buffer. This can be used to solve problems such as catastrophic forgeting"
+3,Missing reset/close environment,"""It includes problems related to missing or bad termination (and restarting) of each round of agent interaction with its environment. At the end of each episode, the environment must be properly closed or reset to its default configurations for the next episodes. Actually, execution of the next episode and correctness of state sequences depend on the successful termination of the previous episode. Wrongly positioned API call for resetting environment is an example of this type of faults.
+"" [1]"
+4,Suboptimal Reward Function,Changing the reward function could lead to better performance. For e.g - better convergence
+5,Unnecessary reward normalisation,Reward normalization doesn’t lead to performance improvement
+6,Wrapping reward after observation normalization,The reward is wrapped before it is normalized.  The observations are normalized before the reward wrapping process
+7,Misconfiguration of the agent to a stochastic inference,"The trained policy is not set to deterministic during inference time, even though it should be"
+8,Missing check for dones,"The RL algorithm doesn't check for `done`. This check is needed in various RL algorithm, especially while computing returns
+The done variable tells whether an episode has been completed. As per gymnasium farama foundation, a done variable can be true when an episode has been completed, the time limit has been exceeded or an invalid state was encountered by the simulator [5]"
+9,Missing reward normalisation/scaling,Rewards weren't normalized or scaled. The absence of normalization affects the learning process with neural networks
+10,Potential of terminal step not fixed to zero,"Reward shaping is described as providing separate rewards from what is given by the MDP, in order to modify the learning procedure [3]. It typically is in the form of a function. Now, Potential based reward shaping falls under this umbrella wherein the shaping function is - 
+
+F(s,s') = \gamma*\phi(s') - \phi(s)
+This function has the following guarantee that the optimal policy will be obtained if all state-action pairs get sampled infinitely [3]. Over here \phi is the potential function and the potential of a state s is denoted by \phi(s) 
+
+According to this post, in cases wherein the length of episodes are variable, not setting the final state potential to 0 might lead to not arriving at the optimal policy.
+
+Potential of the terminal state is allowed to be non-zero (affects the optmal policy). The concept of potential is used in reward shaping. This is a nice link to understand the process - 
+ https://gibberblot.github.io/rl-notes/single-agent/reward-shaping.html"
+11,Suboptimal network update frequency,"""Problems related to suboptimal update frequency of networks’ parameters (including the target network)
+  leading to unstable learning and increasing loss value are categorized in this
+  group."" [1]"
+12,Suboptimal exploration rate,"""This tag covers problems related to suboptimal exploration
+  parameters (e.g., epsilon in epsilon-greedy method) or suboptimal decay rate
+  that leads to poor performance of the algorithm."" [1]"
+13,Suboptimal learning_start,"The learning_start parameter refers to when the algorithm starts learning. If this is incorrect (not suboptimal), the algorithm will never learn and the agent will perform random actions."
+14,Biased target network,The target network is not completely independent of the online network and shares some parameters
+15,Flags indicating successful termination or timeout not set properly,Ending the episode at the wrong time
+16,Not enough episodes/iterations (training),Number of training episodes or iterations in DRL or conventional RL respectively wasn't enough/time_steps
+17,Suboptimal / Missing normalisaton of observations,The observations weren't normalized affecting the performance of the RL neural network or the existing observation normalisation scheme does not lead to the optimal performance
+18,Deep Learning Fault,Any problem related to Deep Learning
+19,Non-random starting state,Starting at the same state during training causes poor performance. 
+20,Wrong network update / Wrong update rule,"""Each network or set of parameters (like
+  Q and target network in DQN or policy and value networks in policy gradient
+  algorithms) must be properly updated based on new values or recent observations.
+ Examples are update the wrong network, wrong update statement and
+ missing the update statement(s)."" or ""A new experience from the environment should be
+  incorporated into the existing experiences by an update rule."" [1]"
+21,Non-stochastic policy,"The AIRL algorithm, during training, requires a stochastic policy and not a deterministic one"
+22,Use of variable horizon in environment where fixed horizon is more appropriate,Training on tasks that have a varying number of time steps
+23,Reward Scale,The reward scale needs to be reduced. Ideally the mean should be 0
+24,Reward function not defined for entire range of behaviour,The reward doesn’t encompass various scenarios the agent might experience
+25,Missing policy-gradient clipping,Missing gradient clipping leads to unstable agent behaviour and NaN probabilities
+26,Suboptimal observation space,Observations does not include all the important parameters. This affects the learning process and causes a dip in the performance.
+27,Wrong Normalization of advantage,Normalizing the advantage for some algorithms (typically PPO) with just a single sample will result in NANs
+28,Suboptimal Number of rollout steps,The number of steps to run for each environment per update.  The PPO algorithm alternates between 2 stages - the rollout and the learning stage as explained here. The rollout phase involves letting the agent take actions in the environment based on its current network parameters. The action can take a certain number of steps (N) for each environment (M). The product of N and M is referred to as n_steps. 
+29,Suboptimal Action Space,"The action space makes it difficult for the agent to learn. Typically, it makes it hard for the agent to discriminate between different tasks."
+30,Suboptimal observation normalisation,The existing observation normalisation scheme does not lead to the optimal performance
+31,Missing action normalisation,Actions haven't been normalized. This bug was specifically described by a ICLR paper.
+32,Suboptimal sampling from replay buffer,"The sampling process in the buffer causes a dip in performance, for instance, not doing random sampling"
+33,Wrong update rule,"""A new experience from the environment should be
+  incorporated into the existing experiences by an update rule."""
+34,Small number of MCTS simulations,"The number of MCTS simulations is suboptimally low The AlphaGoZero algorithm performs Monte Carlo Tree Search (MCTS) iterations to compute the probability to play a move for a given state  [4]. An MCTS iteration basically involves going from the root node of the tree to a specific leaf while following certain steps. As per the post, the number of MCTS iterations was suboptimally low. "
+35,Suboptimal Discount Factor,"The discount factor affects the tradeoff between obtaining immediate vs future rewards. When the discount factor \gamma = 0, the agent only focus on its immediate rewards, while determining actions. In case \gamma = 1, the agent focuses on the sum total of all future rewards obtained by taking an action. "
+36,Suboptimal Replay buffer size,"The size of the replay buffer affects the algorithm performance. For instance, it leads to catastrophic forgetting"
+37,Suboptimal Polyak constant value,The Polyak constant is used to update the target network towards the online network. It is different from direct copying as it basically performs a weighted update of the target network and online network into the target network
+38,Suboptimal noise sampling,The noise parameter is used for exploration. The noise values can vary depending upon the distribution it is sampled from.
+39,Suboptimal minimum exploration rate,"This is the final value of the exploration rate. Basically when the exploration decay ends, this is the final value of exploration reached."
+40,Suboptimal State Space,"The State representation is wrong is suboptimal -  This is different from incomplete state description, as the latter might be just missing relevant attributes whereas the former doesn't give the agent any information.  
+
+The issue can arise from one of the following - 
+
+1. The State representation has components which adversely affect learning
+2.  The State representation has missing components
+3. The environment is designed in such a way that the number of states is unnecessarily large. Redesigning the state space might help the agent learn better or converge to a near optimal policy faster"
+41,Suboptimal application of Dirichlet noise,"This is used to perform exploration. In our case, we found it being used in the AlphaZero paper."
+42,Missing target network,"Target network is missing. Typically in DQN algorithms, we have 2 networks - Online and Target networks. The Online network parameters is copied onto the Target Network after a few iterations."
+43,Missing replay buffer,The replay buffer is missing. The replay buffer stores data that the learning algorithm uses for training.
+44,Incomplete State Description,The State in the RL problem isn't optimally designed. This can make learning difficult. This is different from Incorrect State Description which doesn't give the agent any information.
+45,Suboptimal exploration rate - Epsilon,The exploration rate is suboptimal in the context of Epsilon Greedy Algorithm. This is typically found with DQN algorithms
+46,Suboptimally balancing value and policy networks,"This error arose in a post using the AlphaGo algorithm. The lambda parameter is used to balance the use of policy and value networks. Depending on the lambda value, the network uses relies more on value or policy network."
+47,Use of inappropriate function approximator for the given environment,"The type of generalization the RL algorithm uses. For small state spaces one would want to go with regular Q learning. For intermediate state spaces, tile coding or constructing linear predictors should be fine. For large state spaces, a neural network should be typically used."
+48,Suboptimal decay of exploration,"Exploration is supposed to be decayed as the training progresses. When training begins, the agent doesn't know much and therefore is expected to make random actions. As the training progresses the agent is supposed to make use of the knowledge it gained and make fewer exploration steps. The exploration decay parameter controls the reduction in exploration as training progresses."
+49,Subtoptimal frame skip parameter,"""Frame skip is the number of frames an action
+is repeated before a new action is selected."". [2]
+"
+50,Missing exploration,""" failure to explore
+  the environment in the case that it is necessary according to the algorithm.""
+
+""This tag is identified as the failure to explore the environment in the case that it is necessary according to the algorithm. Lack of exploration leads to poor performance of the algorithm in terms of mean reward. Sometimes developers rely on the output of the neural network (e.g., DQN) to have enough flexibility to cause sufficient exploration but using explicit methods like epsilon greedy is more effective."" [1]"
+51,Suboptimal Entropy Coefficient,The regularization parameter (entropy) usually used in PPO hasn't been set. is suboptimal. This adversely affects exploration and in turn causes the agent's performance to dip. 
+52,Suboptimal scaling of features,The state features haven't been scaled. This makes it hard for the function approximator to learn from the states.
+53,Large State Description,The environment is designed in such a way that the number of states is unnecessarily large. Redesigning the state space might help the agent learn better or converge to a near optimal policy faster
+54,Sparse Reward,The agent only recieves reward in infrequent intervals. This makes it hard for the agent to learn which  states and actions are beneficial to obtaining high rewards.
+55,Misconfiguration of the agent to a deterministic inference,Setting a stochastic policy to deterministic at inference might cause the agent's performance to deteroriate. The agent might be relying on stochasticity to achieve certain goals which cannot be done using deterministic actions.
+56,Suboptimal Learning Rate,"The learning rate is suboptimal. In particular, it is either too high or low. We only want to keep this for non neural network algorithms"

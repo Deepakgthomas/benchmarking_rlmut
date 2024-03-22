@@ -1,0 +1,244 @@
+ID,(File + Line No.)/Excerpt,Label
+GH 2.1,arena_navigation/arena_local_planner/learning_based/arena_local_planner_drl/configs/hyperparameters/default.json 18,Suboptimal Reward Function
+GH 2.2,-,Missing reset/close environment
+GH 4,highway_env/envs/highway_env.py 44,Suboptimal Reward Function
+GH 5,safe_control_gym/envs/gym_control/cartpole.py 590,Suboptimal Reward Function
+GH 7,"""When we create a reward, the system differentiates whether it is summer season or not. To do so, it uses a year to set the date. The point is that we could have environments in which an episode duration is more than one year. In that case, the summer period would not be set correctly.""",Suboptimal Reward Function
+GH 17,src/imitation/scripts/expert_demos.py 166,Unnecessary reward normalisation
+GH 18,src/imitation/scripts/expert_demos.py 106,Wrapping reward before normalization
+GH 19,docs/modules/sac.rst 85,Selecting a non-deterministic trained policy
+GH 22,src/imitation/algorithms/mce_irl.py 360,Missing check for dones
+GH 24,train.py 282,Missing reward normalisation
+GH 28,"""Makes RewardNetShaped and subclasses set next potential to be fixed to zero when the episode terminates. 0 is required in the undiscounted case for convergence guarantees (where it can be chosen WLOG).""",Pontential of terminal step not fixed to zero
+GH 32,"""the learning in your case fail for a very special reason:
+ learning_starts and target_update_interval are above each budget total_timesteps for individual call for .learn() so you agent is just behaving randomly and never updating the target network (and because reset_num_timesteps=True).""",Suboptimal network update frequency
+GH 34,"""the learning in your case fail for a very special reason:
+ learning_starts and target_update_interval are above each budget total_timesteps for individual call for .learn() so you agent is just behaving randomly and never updating the target network (and because reset_num_timesteps=True).""",Incorrect learning_start
+GH 36,"""Fixes the issue that the feature extractor was shared between network and target.""",Biased target network
+GH 38,"""When sampling HER transitions, the SB3 implementation calculates a new reward but not a new done flag.
+ The idea of HER is to sample successful goal transitions by replacing the desired goal with actually achieved goals in the episode.""",Incorrect done flag
+GH 42,"""Adds a flag terminal to Trajectory indicating if the trajectory contains the terminal state of an episode. h/t @ejnnr for the idea.
+ """,Incorrect done flag
+GH 43,"""The previous implementation allowed a non-zero potential for terminal states. If episodes are variable-length, this can change the optimal policy. """,Pontential of terminal step not fixed to zero
+GH 45,"""Fixes incorrect gamma in reward normalization wrapper for non-default gamma's. See #203.
+ """,Discount Factor
+GH 49,"""Doubled cartpole training timesteps, because that's how long it took to
+ get to expert.""",Not enough episodes/iterations (training)
+GH 50,stable_baselines3/common/vec_env/vec_normalize.py 130,Missing normalisaton of observations
+GH 53,"""Add replay buffer to AIRLTrainer. """,Suboptimal Replay Buffer Design
+GH 55,social_dilemmas/envs/map_env.py 141,Suboptimal Reward Function
+GH 57,"""Improve the RL learning process by selecting random start point for the agent, it can help to block the agent to only learn on the selected period of time, while improving the quality of the model.""",Non random start point
+GH 58,"""You're right, the lanes were initially much shorter (when has_arrived() was written) and have been lengthened since, for visual appearance. Thanks for the notice!""",Suboptimal Environment Dynamics
+GH 60,"""Adding a RunningNorm layer to explicitly normalize the MLP output.""",Missing reward normalisation
+GH 61,"""Fixes IID RL should sample new tasks after each episode #81:""",Replay Buffer Design
+GH 62,"""
+ Hello,
+ You probably need to call env.close() at the end (cf. issues on the gym repo).
+ """,Missing reset/close environment
+GH 63,"""In SAC, when updating the Q-values:
+should be (entropy term also conditioned by termination):""",Wrong network update
+GH 65,"""According to an experiment realized by @manjavacas, the comfort violation rates and reward comfort penalties do not correspond correctly to the internal building temperatures versus the established comfort intervals.
+ """,Suboptimal Reward Function
+GH 67,"""More fundamentally, AIRL needs a stochastic policy. In principle one could have an on-policy algorithm with deterministic policy, or an off-policy algorithm with stochastic policy, but currently in SB3 it seems all on-policy algos have stochastic policies and all off-policy algos have deterministic policies.""",Non stochastic policy for AIRL
+GH 68,"""Variable horizon tasks cause all sorts of problems as discussed in #324 and elsewhere. This PR raises ValueError if it detects a variable horizon environment while training AdversarialTrainer or PreferenceComparison.""",Training on variable horizon tasks
+GH 69,"""The current implementation of AdversarialTrainer only normalizes the obs component, not the next_obs component.
+ 
+ Our base reward networks don't use next_obs by default, so this is not as bad as it seems, but we do use it for potential shaping. This is problematic since this inconsistent normalization makes it no longer be potential shaping, and does actually change the optimal policy.""",Missing normalisaton of observations
+GH 70,"""imitation.adversarial.trainer never applied VecNormalize to rewards or observations during PPO2 training. This means that before this patch, PPO2 for the
+ GAN's generator was training with an unnormalized reward.""",Reward Scale
+GH 71,"""As an example of why this is bad, we have a dozen or so runs showing that training an expert in PPO2+MountainCar achieves minimum episode reward when observations are not normalized.
+ """,Missing normalisaton of observations
+GH 72,"""add a new config ""reward_speed_range"" to HighwayEnv to configure the speed range for the reward (see #109)"" =>
+ 
+ ""The high-speed reward maps linearly from 0 at 20 m/s to 1 at 30 m/s and saturates both for lower and higher speeds. I understand that this comes from the MDPVehicle that only selects a speed between 20 and 30 m/s. However, continuous control allows speeds between -40 m/s and +40 m/s.""",Suboptimal reward mapping
+GH 73,"""Update reward function to a better example that is a delta of reward and scaled reasonably. Fixes issue [Question] Reward calculation in example agent #83.""",Suboptimal Reward Function
+GH 73,"""Set default example agent to inference on non-deterministic mode. Agents often get stuck when set to deterministic in inference.""",Misconfiguration of the agent to a deterministic inference
+GH 75,"""Without gradient clipping the PolicyGradient agent was unstable, occasionally resulting in NaN probabilities.
+ """,Missing gradient clipping
+GH 77,"""Currently PointMaze observations is just the position of the particle (in Cartesian coordinates).
+ 
+ This makes the environment highly non-Markovian, and leads to even expert policies looking rather jagged: they keep accelerating towards the particle, overshooting, and correcting winding up in SHM-like motion.""",Suboptimal observation design
+GH 81,"""After tracking nans for a while, I found that it originated in line 196 of ppo/ppo.py, when doing advantages.std()
+ This is because rollout_data has length 1 and the computation of the std fails.""",Normalizing with a single sample
+GH 88,"""Ent bonus for AIRL was wrong because the observation input to gen_policy.action_probability() needed to be normalized but was not.
+ """,Missing normalisaton of observations
+GH 89,"""Increases the default n_steps collected by PPO to be consistent with the Pendulum-v0 example in the SB agent zoo (I found this made it much more stable).""",Suboptimal number of n_steps
+GH 93,"""Adversarial training could fail if allow_variable_horizon=False even on fixed-horizon environments. The issue was that we use reset_num_timesteps=False when calling SB3's learn(), which has the side effect of not resetting the environment""",Missing reset/close environment
+GH 95,"""fix the range of action space from -1 ~ 1 to 0 ~ 1 for the orthogonal manipulation of the agent.""",Suboptimal action space design
+GH 95,"""fix _computeReward function to enhance agent to go higher than before.""",Suboptimal Reward Function
+GH 95,"""fix _computeDone function to reduce unnecessary interaction with environment.""",Incorrect done flag
+GH 99,"""It is often helpful to normalize the observations from an MDP prior to feeding them into a deep policy or reward network. Previously, we used VecNormalize to apply this normalization at an environment level. However, this proved to be quite complex for imitation. """,suboptimal observation normalisation
+GH 100,"""For reward networks, actions (where present) are normalized as well as observations. I think this is generally desirable, but may cause some small differences in results.""",missing action normalisation
+GH 101,dedo/envs/deform_env.py 345,Missing normalisaton of observations
+SE 1,Your reward function makes it painful to be alive,Suboptimal Reward Function
+SE 5,introducing a full consecutive batch of experiences,Suboptimal sampling from replay buffer
+SE 6,"""So, your q_table is essentially always filled with a bunch of 0
+  values that never get a chance to properly learn.""",Wrong update rule
+SE 7,"""if you only have 20 MCTS simulations for a branching factor of 80... that's certainly a problem""",Small number of MCTS simulations
+SE 9,"""The main issue for non-convergence was that I was not decaying the learning rate appropriately. I put a decay rate of −0.00005
+  on the learning rate lr, and subsequently Q-Learning also converged to the same value as value iteration.""",Wrong update rule
+SE 10,"""The problem was in the state and the reward. """,Suboptimal Reward Function
+SE 12,"""The thing is, that while I was posting the question, I tried to tweak with the parameters and it seems that my discount rate (set for 0.99) was causing these errors.""",Suboptimal Discount Factor
+SE 14,"""The problem here is likely related to the state approximations you are using.""",Suboptimal observation design
+SE 15,"Your discount factor γ0.1
+  has an extremely small value",Suboptimal Discount Factor
+SE 15 [Duplicate],"After looking into the above suggestions, you'll probably also want to look into making sure that your agent experiences games in which it starts as Player 1, as well as games in which it starts as Player 2, and trains for both of those possible scenarios and learns how to handle both of them.",Non random start point
+SE 16,Changed max buffer size to 1000000,Suboptimal Replay buffer size
+SE 16,"Changed the polyak constant (tau) from 0.99 to 0.001 (I didn't have an idea of what it should be, so I had just set it randomly in the first try)",Suboptimal Polyak constant value
+SE 16,Sampled the noise from a standard normal distribution instead of sampling randomly.,Suboptimal noise sampling
+SE 18,"""In off-policy learning (which Q-learning is an instance of), it is usual to set a minimum exploration rate.""",Suboptimal minimum exploration rate
+SE 18,"""So I severely underestimated the amount of training these require.""",Not enough episodes/iterations (training)
+SE 18,"""It is not clear from your description whether you are using a single colour frame for the state representation, or stacked greyscale frames for the last 3 inputs. It should be the latter, and if you want to more closely replicate the orginal DQN Atari paper, you should take the previous 4 frames as input.""",Incorrect State Description
+SE 21,"""For Cartpole, I found a very simple hack made the learning very stable. Keep aside some percentage of replay memory stocked with the initial poor performing random exploration.""",Suboptimal Replay Buffer Design
+SE 22,"""That means that your Q
+ -table should have a row for each possible matrix, and a column for each possible total assignment of items to users.""",Incorrect State Description
+SE 23,"I'm not sure what α
+  you used, but based on AlphaZero, α=10/60000=
+  1.66e-4 is what you should be aiming for, if you want to match AlphaZero's configuration of 10/AverageValidMoves.",Suboptimal application of Dirichilet noise
+SE 24,I tried normalizing my observations between -1 and 1 and this caused a major improvement.,Missing normalisaton of observations
+SE 25,"I run the 50 million episodes (yes, I'm working with episodic tasks) and it worked,",Not enough episodes/iterations (training)
+SE 29,"""Ok I finnaly foud a solution by de-correlate target and action value using two model, one being updated periodically for target values calculation.""",Missing target network
+SE 30,"""Experience replay. Agent does not learn online, but instead puts each sample (S, A, R, S') into a memory table and trains the neural network on mini-batches sampled from this memory. Commonly this minibatch update is run on every step (after enough experience collected) and might be e.g. size 32. So learning updates happen faster than experience is collected.""",Missing replay buffer
+SE 31 [duplicate],"""Your environment is not tracking changes to state, just random success/fail based on self.initBlevel which is never modified to reflect changes.""",Incorrect State Description
+SE 31 [duplicate],"""You are running the system as an episodic problem, but do not re-set the environment for the start of a new episode.""",Missing reset/close environment
+SE 34,"""I think your main problem is use of relative distance as the core feature. It has two major weaknesses:
+ 
+ The distance to an object does not give the direction to the object. The best action choices are all critically dependent on direction. For example an enemy laser bolt 0.1 units directly above the player is an immediate danger requiring evasive action, whilst one 0.1 units to the left or right is not a danger and about to leave the game window. Your feature of relative distance does not distinguish between those scenarios, but it is a critical difference.
+ 
+ Slightly less important, but the raw distance does not capture any sense of movement. If enemies move consistently turn by turn, but not always in the exact same direction or same speed, then their velocities should also be part of the state.""",Incomplete State Description
+SE 36,"I used values :
+ 
+  epsilon: {
+  value: 0.01
+  },
+  alpha: {
+  value: 0.7
+  },
+  gamma: {
+  value: 0.9
+  },
+  resolution: {
+  value: 0.1
+  }, 
+  liveReward: {
+  value: 10
+  },
+  scoreReward: {
+  value: -100
+  },
+  deathReward: {
+  value: 1000
+  },",Suboptimal Reward Function
+SE 36 [Duplicate],"I used values :
+ 
+  epsilon: {
+  value: 0.01
+  },
+  alpha: {
+  value: 0.7
+  },
+  gamma: {
+  value: 0.9
+  },
+  resolution: {
+  value: 0.1
+  }, 
+  liveReward: {
+  value: 10
+  },
+  scoreReward: {
+  value: -100
+  },
+  deathReward: {
+  value: 1000
+  },",Discount Factor
+SE 36 [Duplicate],"I used values :
+ 
+  epsilon: {
+  value: 0.01
+  },
+  alpha: {
+  value: 0.7
+  },
+  gamma: {
+  value: 0.9
+  },
+  resolution: {
+  value: 0.1
+  }, 
+  liveReward: {
+  value: 10
+  },
+  scoreReward: {
+  value: -100
+  },
+  deathReward: {
+  value: 1000
+  },",Suboptimal exploration rate - Epsilon
+SE 37,"""In the text of your question, you have stated that you believe the policy network is decent, and the value network isn't really informative. So, if that's the case, I'd try using a high value for lambda""",Suboptimally balancing value and policy networks
+SE 39,"""In that case, you need to add some intrinsic reward when the agent acts in the right direction. That allows the agent to learn even if the rewards are sparse.""",Suboptimal Reward Function
+SE 40,"""yes! thanks :) the discount factor is the causal issue I was looking for. """,Discount Factor
+SE 41,"""Using the log method did not help, but your idea lead to another idea: I found a way to normalize the reward to [-1,1] which made things much easier""",Missing reward normalisation
+SE 43,"""One question you might want to ask yourself is - why you don't initialize your state randomly? Sure, there are cases where it makes more sense to have one main state for initialization, but if your algorithm learns better for other starting points, it might be worth a try to initialize each episode with a different state and let the agent generalize the state space better.""",Non random start point
+SE 44,"""Thanks, I was able to solve and understand the solution shown in github.com/keon/deep-q-learning/blob/master/dqn_batch.py. Batch sampling really did make a difference.""",Missing replay buffer
+SE 44 [Duplicate],"""Nevertheless, RL takes a long time to converge, unlike conventional deep learning where the loss decreases very fast in the beginning, in RL the reward will not increase for a long time and then suddenly start increasing.""",Not enough episodes/iterations (training)
+SE 45,"""You need to increase the update frequency of the target network""",Suboptimal network update frequency
+SE 46,"""After checking your provided code, the problem doesn't seem to come from what agent starts the game but from not restarting the environment after a game is done.""",Missing reset/close environment
+SE 47 [Duplicate],"""updating network once in 10 episodes, but on 10 batches in replay buffer""",Suboptimal network update frequency
+SE 47 [Duplicate],"""Also for RL it's take a long time to learn anything, so hoping that after 100 episodes it'll be close to even 100 points is somewhat optimistic.""",Not enough episodes/iterations (training)
+SE 48 [Duplicate],"""They decorrelate the training data by using memory replay. Stochastic gradient descent doesn't like when training data is given in order.""",Replay Buffer Design
+SE 48 [Duplicate],"""Second, they bootstrap using old weights. That way they reduce non-stationary.""",Missing target network
+SE 50,"""To give another example of how this is a problem, notice that the agent may want to take different actions depending on the position of the opponent's pieces, so to play optimally, the agent needs this information too. This information needs to be included in your state representation.""",Incorrect State Description
+SE 50 [Duplicate],"""Then you may also consider using a function approximator instead of a Q-table to cope with what will likely still be a very large number of features. You can read more about this in Reinforcement Learning: An Introduction, particularly around 3.9.""",Wrong Generalization Approach
+SE 52,"""You might want to change your get_random_action function to decay epsilon with each episode.""",Suboptimal decay of exploration
+SE 55,"""The cause of the issue was that the agent had no incentive to quickly solve the problem, because going to the right after 10 steps and after 3 steps both result in equal reward.""",Suboptimal Reward Function
+SE 55 [Duplicate],"""I also sped up the learning process by increasing the epsilon_greedy parameter of the DqnAgent's constructor to 0.5 (from it's default of 0.1) to allow it to more quickly explore the entire environment.""",Suboptimal exploration rate
+SE 58,"""The model will only start learning something useful once you get to the top once. If you are never getting to the top you should probably increase your time doing exploration. in other words take more random actions, a lot more…""",Suboptimal exploration rate - Epsilon
+SE 60,"""Your initial epsilon is set to 1 self.epsilon = 1.0. And yet, when you perform an action, instead of decaying it, you increase it.""",Suboptimal decay of exploration
+SE 61,"""Your tau value is too small, small target network update cause DQN traning unstable. You can try to use 1000 (OpenAI Baseline's DQN example) or 10000 (Deepmind's Nature paper).""",Suboptimal network update frequency
+SE 62,"""I think you should consider reducing the scale of the rewards.""",Reward Scale
+SE 63,"""It makes sense to give each bandit a different reward function or all your action values will be the same. """,Suboptimal Reward Function
+SE 65,"""My solution has been to simply set γ=1
+  in the PBRS term, even when using, say, γ=0.99
+  in the RL formulation. This solves (or rather, circumnavigates) every issue above.""",Discount Factor
+SE 66,"""But since Q has itself been changed, the target value of the record 3 changes. This is not desirable. Over time, all the changes cancel each other and Q value remains roughly the same.""",Missing target network
+SE 68,"""The same γ=0.9
+  that you use in the definition F≐γΦ(s′)−Φ(s)
+  should also be used as the discount factor in computing returns for multi-step trajectories. """,Suboptimal Discount Factor
+SE 69,"""By input processing, I mean the environment chosen (PongFrameskip-v4, instead of PongDeterministic-v4 in this case) and the wrapper methods make_atari and wrap_deepmind. I did not have the make_atari wrapper.""",Subtoptimal frame skip parameter
+SE 69 [Duplicate],"""Used a small replay buffer of size 10000""",Suboptimal Replay Buffer Design
+SE 72 [Duplicate],"""Check your input scaling. Neural networks like to train on inputs that have mean 0, standard deviation 1, and it is worth scaling them so that they fit roughly into -1..1 or similar. Your feature engineering is not shown in your code, so it might be an issue.""",Missing normalisaton of observations
+SE 72 [Duplicate],"""In addition, you really need to look into experience replay. It is not an optional extra when using neural networks with Q learning - it is pretty much required for anything but the most trivial environments. """,Missing replay buffer
+SE 75,"""It seems that decaying the learning rate solved my problem. I changed learning_rate from 0.001 to 0.0001""",Suboptimal learning rate
+SE 77,"""As far as I can tell you're always acting greedily with respect to your Q
+ -function. You should be looking to act ϵ
+ -greedily, i.e. with probability ϵ
+  take a random action and act greedily otherwise. Typically you start with ϵ=1
+  and decay it each time a random action is taken down to some small value such as 0.05.""",Missing exploration
+SE 79,"""I found the solution, it was changing reward function and using reward scaling.""",Suboptimal Reward Function
+SE 79 [Duplicate],"""I found the solution, it was changing reward function and using reward scaling.""",Reward Scale
+SE 83,"""You were right. I just modified the line in which I invoke the PPO in this way: model = PPO(""MlpPolicy"", env, verbose=1, ent_coef=0.05). Now everything works fine""",Suboptimal Entropy Coefficient
+SE 84,"""I got these results:
+ 
+ Unaltered state 629.99 +-23.66 episodes, but failed in 28 out of 100
+ 
+ Scaled state 577.78 +-19.41 episodes, no failures
+ 
+ Engineered state 153.84 +-3.26 episodes, no failures""",Suboptimal features for state representation
+SE 84 [Duplicate],"""I got these results:
+ 
+ Unaltered state 629.99 +-23.66 episodes, but failed in 28 out of 100
+ 
+ Scaled state 577.78 +-19.41 episodes, no failures
+ 
+ Engineered state 153.84 +-3.26 episodes, no failures""",Suboptimal scaling of features
+SE 84 [Duplicate],"""You need to carefully consider what it means for the episode to time out. There is a difference between this being part of the challenge (to succeed within a time limit) and being for training convenience (to avoid wasting time learning from overlong or stuck episodes). Sometimes it is a big difference""",Incorrect done flag
+SE 85,"""For Cartpole, I found a very simple hack made the learning very stable. Simply keep aside some percentage of replay memory stocked with the initial poor performing random exploration. Reserving say 10% to this long term memory is enough to make learning in Cartpole rock solid, as the NN always has a few examples of what not to do. """,Suboptimal Replay Buffer Design
+SE 86,"""The issue was that in offline Q-Learning you need to repeat the process of gathering data at least n times, where n depends on the problem you're trying to model.""",Not enough episodes/iterations (training)
+SE 87,"""SOLVED: There was an edge case where the environment was not ending, and the done variable remained False indefinitely.""",Incorrect done flag
+SE 88,"""Your observation function appears to be returning 5 points, so that means a state can be any configuration of 10 integers in [0,99]. That's 100^10 possible states! Your state space needs to be much smaller.""",Large State Description
+SE 88 [Duplicate],"""You suggest that you're are picking actions from [0,4], where each action is essentially an index into an array of points available to the agent. This definition of the action space doesn't give the agent enough information to discriminate what you say you'd like it to (smaller magnitude point is better), because you only act based on the point's index!""",Suboptimal action space design
+SE 88 [Duplicate],"""Finally, the reward function that gives zero reward until termination means that you're allowing a large number of possible optimal policies.""",Sparse Reward
+SE 89,"""Looking at your code, I don't see how the environment is being explored. Don't you need something like epsilon greedy to ensure that exploration happens? For example, I tried modifying the agent.act() method as follows, and it seems to solve the problem.""",Missing exploration
+SE 93 [Duplicate],"""I changed the dimension of the states that been send to NN""",Incorrect State Description
+SE 95,"""You need to be very careful before making stochastic agents deterministic. This is because they can become unable to achieve certain goals. """,Selecting a non-stochastic trained policy

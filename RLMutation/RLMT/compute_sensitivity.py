@@ -5,8 +5,6 @@ import os
 import pandas as pd
 from collections import defaultdict
 operator_dict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(dict))))#todo Not sure of this. Check it.
-#todo - What about cases where the agent was neither killed nor not killed. How are you computing sensitivity there?
-#todo - Didn't find any inconclusive results for DtR as of now.
 
 rq2_folder="rq2_folder"
 if os.path.exists(rq2_folder):
@@ -60,7 +58,7 @@ for file_name in files:
                         elif "Inconclusive" in mutation_result:
                             operator_dict[str(environment)][str(algorithm)][str(test_generator_type)][str(mutation_type)][str(operator_value)]=0
                         else:
-                            operator_dict[str(environment)][str(algorithm)][str(test_generator_type)][str(mutation_type)][str(operator_value)]=1 #todo Come up with a better way to represent killed
+                            operator_dict[str(environment)][str(algorithm)][str(test_generator_type)][str(mutation_type)][str(operator_value)]=1
 
                         ready_to_append = False
 
@@ -71,7 +69,7 @@ out.to_csv(str(rq2_folder)+"/final_result.csv")
 
 # Check this carefully
 # Group by all levels of the multi-level column
-sum_data = out.groupby(level=[0, 1,2,3], axis = 1).sum()
+sum_data = out.groupby(level=[0, 1,2,3], axis = 1).sum() #todo Check groupby
 count_data = out.groupby(level=[0, 1,2,3], axis = 1).count()
 result_df = pd.concat([sum_data, count_data], axis=0, keys=['Sum', 'Count'])
 result_df.index = result_df.index.droplevel(-1) #todo Very dangerous operation! Please check!!!
