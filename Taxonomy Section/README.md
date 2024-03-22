@@ -1,6 +1,6 @@
 # Labeling_Results
 
-Here is the replication package for the Taxonomy Labeling process for the paper, "MT4RL: a Mutation Tool for Deep Reinforcement Learning based on a Taxonomy of Real Faults"
+Here is the replication package for the Taxonomy Labeling process for the paper, "μPRL: a Mutation Testing Pipeline for Deep Reinforcement Learning based on Real Faults"
 
 This repository contains the following files - 
 
