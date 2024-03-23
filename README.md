@@ -94,3 +94,4 @@ The results should be stored in the file - `output_myCartPole-v1_ppo_strong_gamm
 
 
 [1]. Tambon, Florian, et al. "Mutation Testing of Deep Reinforcement Learning Based on Real Faults." 2023 IEEE Conference on Software Testing, Verification and Validation (ICST). IEEE, 2023.
+[2]. https://github.com/openai/gym
