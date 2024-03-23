@@ -319,7 +319,6 @@ class myCartPoleEnv(CartPoleEnv):
         self.steps_beyond_done = None
         self.episode_number = 0
         self.test_gen = []
-        #todo Check
         current_directory = os.getcwd()
         folder_path = os.path.join(current_directory, "testing")
         files = os.listdir(folder_path)

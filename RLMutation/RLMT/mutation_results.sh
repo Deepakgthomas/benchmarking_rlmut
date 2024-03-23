@@ -3,10 +3,7 @@ export CUDA_VISIBLE_DEVICES=""
 set -e
 
 
-##todo WARN: The obs returned by the `reset()` method is not within the observation space.
-##todo WARN: Why did the commented call in the second for loop fail?
-#todo Had to delete PAC_ReLu and NR
-#todo Extract all todos
+
 if [ "$2" = "dqn" ]; then
   my_array=("ILF" "M_1.0" "R_1.0" "Ra_1.0" "RN_1.0" "NDF" "MSU" "MTS" "PAC_Sigmoid" "POC_SGD")
 else

@@ -4,7 +4,7 @@ import shutil
 import os
 import pandas as pd
 from collections import defaultdict
-operator_dict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(dict))))#todo Not sure of this. Check it.
+operator_dict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(dict))))
 
 rq2_folder="rq2_folder"
 if os.path.exists(rq2_folder):
@@ -69,16 +69,16 @@ out.to_csv(str(rq2_folder)+"/final_result.csv")
 
 # Check this carefully
 # Group by all levels of the multi-level column
-sum_data = out.groupby(level=[0, 1,2,3], axis = 1).sum() #todo Check groupby
+sum_data = out.groupby(level=[0, 1,2,3], axis = 1).sum()
 count_data = out.groupby(level=[0, 1,2,3], axis = 1).count()
 result_df = pd.concat([sum_data, count_data], axis=0, keys=['Sum', 'Count'])
-result_df.index = result_df.index.droplevel(-1) #todo Very dangerous operation! Please check!!!
+result_df.index = result_df.index.droplevel(-1)
 result_df.loc['mutation_score'] = result_df.loc['Sum']/result_df.loc['Count']
 result_df.to_csv(str(rq2_folder)+"/mutation_score.csv")
 
 
 # print(result_df.at['mutation_score', ('dqn', 'CartPole-v1', 'strong', 'constant')])
-sensitivity_dict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(dict))))#todo Not sure of this. Check it.
+sensitivity_dict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(dict))))
 
 for i in data_list:
     if i[2]=='weak':

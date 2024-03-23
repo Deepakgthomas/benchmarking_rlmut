@@ -45,7 +45,6 @@ for arg in "${!operators[@]}"; do
 
 done
 
-#todo ReLU/Sigmoid doesn't work
-#todo Why is LunarLander coming in the output?
+
 
 

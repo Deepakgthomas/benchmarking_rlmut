@@ -24,12 +24,10 @@ def compute_mutation_results(new_environment_name, algorithm, test_generator_typ
     test_agent_script = "mutation_results.sh"
     command = ["bash", test_agent_script, new_environment_name, algorithm, test_generator_type, mutant_type_from_file]
     with open(stdout_file_name, "w") as stdout, open(stderr_file_name, "w") as stderr:
-        #todo Why did I have to remove check=True. Please investigate
         # result = subprocess.run(command, stdout=stdout, stderr=stderr, check=True)
         result = subprocess.run(command, stdout=stdout, stderr=stderr)
 
 
-#todo Check if os.walk uses dfs to traverse trees
 
 def rename():
     old_environment_name=""

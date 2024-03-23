@@ -53,6 +53,9 @@ cd RLMT
 ```commandline
 python benchmark_rlmutation.py
 ```
+The results are stored in the folder `results_mutation_benchmark`
+
+7. Copy the contents of this folder into `final_result` and run the program `compute_sensitivity.py`
 
 How does the program work? 
 
@@ -87,5 +90,7 @@ For example -
 bash mutation_results.sh myCartPole-v1 ppo strong gamma
 ```
 The results should be stored in the file - `output_myCartPole-v1_ppo_strong_gamma_stdout_mutation_result.txt`. It consists of 3 mutation killing definitions for each operator. We are interested in "Distance Distribution Test"
+
+
 
 [1]. Tambon, Florian, et al. "Mutation Testing of Deep Reinforcement Learning Based on Real Faults." 2023 IEEE Conference on Software Testing, Verification and Validation (ICST). IEEE, 2023.

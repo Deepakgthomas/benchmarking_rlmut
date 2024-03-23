@@ -567,7 +567,6 @@ class myLunarLanderEnv(LunarLander):
 
         self.episode_number = 0
         self.test_gen = []
-        #todo Check
         self.height = []
         self.force = []
         current_directory = os.getcwd()

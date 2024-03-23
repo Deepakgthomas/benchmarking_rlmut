@@ -22,7 +22,6 @@ declare -A operators=(
 #  python rename_program.py mutated CartPole-v1 myCartPole-v1 $arg PPO ${operators[$arg]}
 #
 #done
-#todo Healthy PPO has some problems. The title has capital "V"
 #python rename_program.py healthy CartPole-v1 myCartPole-v1 -algorithm PPO
 
 #for arg in "${!operators[@]}"; do
@@ -35,10 +34,7 @@ declare -A operators=(
 
 #python test_agent.py -a ppo -na 20 -e myCartPole-v1
 
-##todo WARN: The obs returned by the `reset()` method is not within the observation space.
-##todo WARN: Why did the commented call in the second for loop fail?
-#todo Had to delete PAC_ReLu - My bad there. Using a dictionary to run a loop ... lol
-#todo Extract all todos
+
 my_array=("ILF" "M_1.0" "R_1.0" "Ra_1.0" "RN_1.0" "NDF" "NR" "MSU" "MTS" "PAC_Sigmoid" "POC_SGD")
 for arg in "${my_array[@]}"; do
   python eval_mut.py -a ppo -e myCartPole-v1 -m $arg
