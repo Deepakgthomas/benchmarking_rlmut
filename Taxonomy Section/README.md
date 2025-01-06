@@ -6,7 +6,7 @@ This repository contains the following files -
 
 1. Final_Labeling.csv - This contains the final dataset of StackExchange and GitHub posts that were used to build the taxonomy.
 
-2. line_numbers.csv - This file contains the relevant excerpts from each post. These excertps were largely contributed to the label assigned to the post.
+2. line_numbers.csv - This file contains the relevant excerpts from each post. These excerpts largely contributed to the label assigned to the post.
 
 3. Label_Description.csv - This file contains the descriptions of the labels created by the labellers. We also used some labels from [1].
 
