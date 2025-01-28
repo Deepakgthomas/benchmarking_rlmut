@@ -1,6 +1,8 @@
 # Replication Package
-
 For Taxonomy results, please go into the Taxonomy folder
+
+
+
 # Benchmarking RLMutation [1]
 
 
@@ -11,13 +13,16 @@ Prerequisite -
 
 Steps for execution - 
 
+0. Clone the repository for benchmarking [benchmarking_rlmut](https://github.com/Deepakgthomas/benchmarking_rlmut.git)
 
 1. Clone the official [RLMutation](https://github.com/FlowSs/RLMutation.git) repository (Note - It's already present for the moment) and create a new conda environment
+
 
 ```commandline
 conda create --name benchmark_clean python=3.8
 conda activate benchmark_clean
 cd benchmarking_rlmut
+pip install pip==24.0
 ```
 2. Install the two custom gym environments, myCartPole-v1 and myLunarLander-v1. The environments were created based on instructions given [here](https://www.gymlibrary.dev/content/environment_creation/)
 
@@ -32,7 +37,8 @@ pip install -e custom_env/custom_lunarlander
 
 3. Change your directory to experiments. Go [here](https://zenodo.org/records/7233122) and download "agents.zip".
 ```commandline
-cd experiments
+cd RLMutation
+mkdir experiments && cd experiments
 wget https://zenodo.org/api/records/7233122/files-archive
 unzip files-archive 
 unzip agents.zip
@@ -43,7 +49,7 @@ cd ..
 
 4. Install the packages for RLMutation
 ```commandline
-cd RLMutation
+
 pip install -r requirements.txt
 cd RLMT
 ```
@@ -51,11 +57,21 @@ cd RLMT
 6. Run the python program `benchmark_rlmutation.py` after going into the directory `RLMutation/RLMT`
 
 ```commandline
+
 python benchmark_rlmutation.py
 ```
 The results are stored in the folder `results_mutation_benchmark`
 
 7. Copy the contents of this folder into `final_result` and run the program `compute_sensitivity.py`
+
+```commandline
+cp -r results_mutation_benchmark final_result
+python compute_sensitivity.py
+```
+
+The output should look like this - 
+
+![Sensitivity Analysis Results](sensitivity_results.png)
 
 How does the program work? 
 
